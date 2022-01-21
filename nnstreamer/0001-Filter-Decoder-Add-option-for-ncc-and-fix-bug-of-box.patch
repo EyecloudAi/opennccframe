@@ -1,0 +1,62 @@
+From d4c703b457cff1bc1375d7e3e4dd2050fd629ee3 Mon Sep 17 00:00:00 2001
+From: Zed <zhangdi@eyecloud.tech>
+Date: Wed, 12 Jan 2022 19:13:27 +0800
+Subject: [PATCH] [Filter/Decoder]Add option for ncc and fix bug of box
+ overflow
+
+---
+ .../tensor_decoder/tensordec-boundingbox.c      | 17 +++++++++++++++++
+ .../tensor_filter/tensor_filter_common.c        |  2 ++
+ 2 files changed, 19 insertions(+)
+
+diff --git a/ext/nnstreamer/tensor_decoder/tensordec-boundingbox.c b/ext/nnstreamer/tensor_decoder/tensordec-boundingbox.c
+index 1f8df817..6e3bd5fb 100644
+--- a/ext/nnstreamer/tensor_decoder/tensordec-boundingbox.c
++++ b/ext/nnstreamer/tensor_decoder/tensordec-boundingbox.c
+@@ -1042,6 +1042,21 @@ nms (GArray * results, gfloat threshold)
+ #define _get_objects_mobilenet_ssd_pp_(type, typename) \
+   _get_objects_mobilenet_ssd_pp (bdata, type, typename, (mem_num->data), (mem_classes->data), (mem_scores->data), (mem_boxes->data), config, results)
+ 
++static int coordinate_is_valid(float x1, float y1, float x2, float y2)
++{
++    if((x1<0) || (x1>1))
++        return 0;
++    if((y1<0) || (y1>1))
++        return 0;
++    if((x2<0) || (x2>1))
++        return 0;
++    if((y2<0) || (y2>1))
++        return 0;
++    if((x1>=x2) || (y1>=y2))
++        return 0;
++
++    return 1;
++}
+ /**
+  * @brief C++-Template-like box location calculation for OpenVino Person Detection Model
+  * @param[in] bb The configuration, "bounding_boxes"
+@@ -1076,6 +1091,8 @@ nms (GArray * results, gfloat threshold)
+         bb->max_detection = (d - 1); \
+         break; \
+       } \
++      if(coordinate_is_valid(desc.x_min, desc.y_min, desc.x_max, desc.y_max)==0)\
++          continue;\
+       object.class_id = -1; \
+       object.x = (int) (desc.x_min * (type) bb->i_width); \
+       object.y = (int) (desc.y_min * (type) bb->i_height); \
+diff --git a/gst/nnstreamer/tensor_filter/tensor_filter_common.c b/gst/nnstreamer/tensor_filter/tensor_filter_common.c
+index 9f08c447..a7699672 100644
+--- a/gst/nnstreamer/tensor_filter/tensor_filter_common.c
++++ b/gst/nnstreamer/tensor_filter/tensor_filter_common.c
+@@ -1253,6 +1253,8 @@ gst_tensor_filter_detect_framework (const gchar * const *model_files,
+       detected_fw = g_strdup ("nnfw");
+     else if (g_str_equal (ext[0], NNSTREAMER_SO_FILE_EXTENSION))
+       detected_fw = g_strdup ("custom");
++    else if (g_str_equal (ext[0], ".blob"))
++      detected_fw = g_strdup ("ncc");
+     else if (g_str_equal (ext[0], ".bin") || g_str_equal (ext[0], ".xml"))
+       detected_fw = g_strdup ("openvino");
+     else if (g_str_equal (ext[0], ".tvn"))
+-- 
+2.17.1
+

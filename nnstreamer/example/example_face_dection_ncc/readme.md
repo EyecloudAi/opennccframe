@@ -1,0 +1,22 @@
+### Pipeline  
+
+```
+compositor ── videoconvert ── xvimagesink  
+v4l2src ── videorate ── videoscale ── videoconvert ──  tee  
+tee ───  compositor.sink_0  
+tee ───  videoconvert ── videoscale ── tensor_converter ── tensor_filter ── tensor_decoder ── compositor.sink_1  
+```
+
+
+
+### Run
+
+```shell
+export GST_PLUGIN_PATH=/usr/local/lib/x86_64-linux-gnu/gstreamer-1.0/
+
+#run by shell
+sudo gst-launch-1.0 -v compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! xvimagesink v4l2src device=/dev/video2 ! videorate ! videoconvert ! videoscale ! video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t       t. ! queue ! mix.sink_0       t. ! queue  ! videoconvert ! videoscale ! video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !         tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !         tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! mix.sink_1
+
+#run by python
+sudo python3 example_face_dection_ncc.py
+```
