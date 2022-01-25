@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['cam_5fctrl_5fawb_5fmode',['CAM_CTRL_AWB_MODE',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fb',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fauto',['CAMERA_CONTROL_AWB_MODE__AUTO',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fbad72810e4431e0b872f87fd4ae0631176',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fcloudy_5fdaylight',['CAMERA_CONTROL_AWB_MODE__CLOUDY_DAYLIGHT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fbacf7d6e69e0cbdcc6e368ff5fe7c311ee',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fdaylight',['CAMERA_CONTROL_AWB_MODE__DAYLIGHT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fba7e285656ae1213d6f2f1e02e69df1481',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5ffluorescent',['CAMERA_CONTROL_AWB_MODE__FLUORESCENT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fbabdd13564657b54d34581f67394631297',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fincandescent',['CAMERA_CONTROL_AWB_MODE__INCANDESCENT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fba2daf6f90e4b9a63b3debab5a288b6efb',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5foff',['CAMERA_CONTROL_AWB_MODE__OFF',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fba73f514ac989fc3d05a2d58470ac2ab8d',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fshade',['CAMERA_CONTROL_AWB_MODE__SHADE',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fba9d4093b85391affd5055c3b25a0f897e',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5ftwilight',['CAMERA_CONTROL_AWB_MODE__TWILIGHT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fbab7fa20f6b6e95a2e2d3f074f0411010b',1,'cameraCtrl.h']]],
+  ['camera_5fcontrol_5fawb_5fmode_5f_5fwarm_5ffluorescent',['CAMERA_CONTROL_AWB_MODE__WARM_FLUORESCENT',['../camera_ctrl_8h.html#a3484cf4055af17ddbe2c597be022f3fba49cf8b28124ba3ed7879d1ca0131b804',1,'cameraCtrl.h']]],
+  ['camera_5fctrl_5fae_5fenabled',['camera_ctrl_ae_enabled',['../camera_ctrl_8h.html#aba7a0cd427df04f5337ca92b7d6fcefd',1,'cameraCtrl.h']]],
+  ['camera_5fctrl_5fme_5fset_5fexp_5fgain',['camera_ctrl_me_set_exp_gain',['../camera_ctrl_8h.html#a432aa0d80f4a8605134fc33a5e9ce1f7',1,'cameraCtrl.h']]],
+  ['camera_5fctrl_5fset_5fawb_5fmode',['camera_ctrl_set_awb_mode',['../camera_ctrl_8h.html#ada9af458c287c98abf4110d822c18405',1,'cameraCtrl.h']]],
+  ['cameractrl_2eh',['cameraCtrl.h',['../camera_ctrl_8h.html',1,'']]],
+  ['camfps',['camFps',['../struct_sensor_modes_para__t.html#a6e076a711bc5efa70bf50fc9366d2784',1,'SensorModesPara_t']]],
+  ['camheight',['camHeight',['../struct_sensor_modes_para__t.html#a421eeb4f9312ab29f8b1116ecfa46d9e',1,'SensorModesPara_t']]],
+  ['camwidth',['camWidth',['../struct_sensor_modes_para__t.html#abc105689507d02172635cb041c71672f',1,'SensorModesPara_t']]]
+];

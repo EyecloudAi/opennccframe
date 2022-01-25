@@ -1,0 +1,11 @@
+digraph "/home/zed/movidius/openncc_sdk/sdk" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_fe017ad8c2d0d93b0f6b6e323c673e9f {
+    graph [ bgcolor="#ddddee", pencolor="black", label="openncc_sdk" fontname="Helvetica", fontsize="10", URL="dir_fe017ad8c2d0d93b0f6b6e323c673e9f.html"]
+  dir_bae66a3a8e594bd8dd348fd446f83059 [shape=box, label="sdk", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_bae66a3a8e594bd8dd348fd446f83059.html"];
+  }
+  dir_91427abbe7ff603689b62b78a621fc92 [shape=box label="inc" URL="dir_91427abbe7ff603689b62b78a621fc92.html"];
+  dir_bae66a3a8e594bd8dd348fd446f83059->dir_91427abbe7ff603689b62b78a621fc92 [headlabel="4", labeldistance=1.5 headhref="dir_000002_000001.html"];
+}
