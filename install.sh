@@ -2,7 +2,7 @@
 
 if [ -z $1 ];then
     echo "Please input cmd as (sudo ./install [<platform>]). "
-    echo "[<platform>]: [ubuntu]"
+    echo "[<platform>]: [ubuntu][rk3568][raspi4]"
     exit
 fi
 
@@ -28,7 +28,8 @@ else
     mkdir $include_path
 fi
 
-if [ $1 = "ubuntu" ];then 
+if [ $1 = "ubuntu"  ] || [ $1 = "rk3568" ] || [ $1 = "raspi4" ];then 
+    echo "Starting to install OpenNCC Native libs for $1"
     cd $resource_path/$1/
     ./install.sh $install_path
 else

@@ -65,7 +65,7 @@ class NNStreamerExample:
         # init pipeline
         self.pipeline = Gst.parse_launch(
             'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! '
-            'xvimagesink v4l2src device=/dev/video0 ! videorate ! videoconvert ! videoscale ! '
+            'xvimagesink v4l2src device=/dev/video2 ! videorate ! videoconvert ! videoscale ! '
             'video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t t. ! '
             'queue ! mix.sink_0  t. ! queue  ! videoconvert ! videoscale ! '
             'video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! '
