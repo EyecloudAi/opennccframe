@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-@file		example_dual_model_parallel_ncc.py
+@file		example_face_detection_ncc.py
 @date		26 Jan. 2022
 @brief		Tensor stream example with filter
 @see		https://github.com/EyecloudAi/openncc_frame
@@ -11,16 +11,10 @@
 NNStreamer example for face detection using openvino face-detection-retail-0004.
 
 Pipeline :
-compositor ── videoconvert ── xvimagesink
-compositor2 ── videoconvert ── xvimagesink
-
-v4l2src ── videorate ── videoconvert ── videoscale ──  tee 
-
-tee ── compositor.sink_0
-tee ── videoconvert ── videoscale ── tensor_converter ── tensor_filter ── tensor_decoder ── compositor.sink_1 
-
-tee  ──  compositor2.sink_0
-tee  ── videoconvert ── videoscale ── tensor_converter ── tensor_filter ── tensor_decoder ── compositor2.sink_1
+compositor ── videoconvert ── xvimagesink  
+v4l2src ── videorate ── videoscale ── videoconvert ──  tee  
+tee ───  compositor.sink_0  
+tee ───  videoconvert ── videoscale ── tensor_converter ── tensor_filter ── tensor_decoder ── compositor.sink_1  
 
 This app displays video sink.
 
@@ -35,8 +29,6 @@ import argparse
 
 gi.require_version('Gst', '1.0')
 from gi.repository import Gst, GObject
-
-
 
 class NNStreamerExample:
     """NNStreamer example for image classification."""
@@ -59,17 +51,14 @@ class NNStreamerExample:
 
         # init pipeline
         self.pipeline = Gst.parse_launch(
-            'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! xvimagesink '
-            'compositor name=mix2 sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! xvimagesink   '
-            'v4l2src device=' + str(self.DEVICE) + ' ! videorate ! videoconvert ! videoscale !  '
-            'video/x-raw,width=1280,height=720,format=YV12,framerate=15/1 ! tee name=t  '
-            't. ! queue ! mix.sink_0       t. ! queue  ! videoconvert ! videoscale ! '
-            'video/x-raw,width=300,height=300, format=BGR !    tensor_converter ! '
-						'tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 ! '    
-						'tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !   '
-						'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1280:720 option5=300:300 ! mix.sink_1 t. ! queue ! mix2.sink_0 t. ! queue  ! videoconvert ! videoscale ! video/x-raw,width=544,height=320,format=BGR !     tensor_converter ! tensor_transform mode=typecast option=uint8 ! '
-						'tensor_transform mode=dimchg option=0:2 !  tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/person-detection-retail-0013.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/config/input_BGR.json silent=false accelerator=true  ! '
-						'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1280:720 option5=544:320 ! mix2.sink_2'						
+            'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! '
+            'xvimagesink v4l2src device=' + str(self.DEVICE) + ' ! videorate ! videoconvert ! videoscale ! '
+            'video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t t. ! '
+            'queue ! mix.sink_0  t. ! queue  ! videoconvert ! videoscale ! '
+            'video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! '
+            'tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !  '
+            'tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  ! '
+            'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! mix.sink_1 '
         )
 
         # bus and message callback

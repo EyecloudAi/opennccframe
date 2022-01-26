@@ -1,8 +1,10 @@
-/**！
+/**
  * @file   native_vpu_api.h
  * @author Zed
+ * @email  zhangdi@eyecloud.tech
  * @date   2021.11.15
- * @brief Configure inference engine and pipelines of NCC camera
+ * @brief  Configure inference engine and pipelines of NCC camera
+ * @copyright Copyright (c) 2018-2022 eyecloud.ai
  */
 #ifndef  __NATIVE_VPU_API_H__
 #define  __NATIVE_VPU_API_H__
@@ -10,19 +12,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-/**！
+/**
  * @define MAX_DEV_NUM
  * @brief The maximum of the ncc devices which the sdk supported by one host APP
 */
 #define MAX_DEV_NUM        (2)
 
-/**！
+/**
  * @define MAX_PIPELINE_NUM
  * @brief The maximum of the AI inference pipelines which one device supported
 */
 #define MAX_PIPELINE_NUM   (6)
 
-/**!
+/**
   * @enum usb_error
   * @brief The list of the usb error code
   */
@@ -73,7 +75,7 @@ enum usb_error {
     USB_ERROR_OTHER = -99,
 };
 
-/**!
+/**
   * @enum FRAMETYPE
   * @brief The list of the image format which ncc camera supported.
   */
@@ -89,7 +91,7 @@ typedef enum
      NONE //! < reserve
 }FRAMETYPE;
 
-/**!
+/**
   * @enum METATYPE
   * @brief The list of the AI meta format which ncc camera supported.
   */
@@ -100,7 +102,7 @@ typedef enum
     META_FORMAT_FP32, //! < FP32
 }METATYPE;
 
-/**!
+/**
   * @enum PROCESS_MODE
   * @brief The list of the AI inference mode which ncc camera supported.
   */
@@ -110,7 +112,7 @@ typedef enum
     NCC_ASYNC
 }PROCESS_MODE;
 
-/**!
+/**
   * @struct  NccUsbPortSpec_t
   * @brief USB port information to query device serial number
   */
@@ -120,7 +122,7 @@ typedef struct
     unsigned char path[8]; /** < Port number(Such as Port_3.1->[3,1]) */
 }NccUsbPortSpec_t;
 
-/**!
+/**
   * @struct  NccPipeInput_t
   * @brief Frame data send to ncc device for AI inference
   */
@@ -134,7 +136,7 @@ typedef struct
                                 memory size should same size with NccPipeInput_t.size */
 }NccPipeInput_t;
 
-/**!
+/**
   * @struct  NccPipeOutput_t
   * @brief AI Meta frame with header and data, get back from ncc device after finished one frame AI inference
   */
@@ -155,7 +157,7 @@ typedef struct
                                 the output data, which will lead to the loss of some reasoning results. */
 }NccPipeOutput_t;
 
-/**!
+/**
   * @struct  NccPipeHandle_t
   * @brief Inference engine handle. After the user initializes the model file information, \n
   * the SDK will automatically allocate inference engine resources according to the device conditions\n
@@ -183,7 +185,7 @@ typedef struct
     char json_path[128]; /** < The path of AI model parameter configuration file for inference needs to be downloaded   */
 }NccPipeHandle_t;
 
-/**!
+/**
   * @struct  NccTensorSpec_t
   * @brief Tensor structure
   */
@@ -202,17 +204,16 @@ extern "C" {
 #endif
 
 /**
- * @fn sync_process
  * @brief Synchronous inference function,blocking operation. \n
  * return when the device inference is completed.
- * @param[in] *handle,Pointer to the inference handle,which has been initialized by SDK.
- * @param[in] *input, Pointer to the NccPipeInput_t
- * @param[in_out] *output, Pointer NccPipeOutput_t
- * @param[in] timeout_ms, time out millisecond. The sdk would return after timeout
+ * @param[in] *handle Pointer to the inference handle,which has been initialized by SDK.
+ * @param[in] *input  Pointer to the NccPipeInput_t
+ * @param[out] *output Pointer NccPipeOutput_t
+ * @param[in] timeout_ms time out millisecond. The sdk would return after timeout
  * @return Successful acquisition return or failure
- * @retval 0 success \n
- *        -1 timeout \n
- *        -2 repeated call
+ *   @retval 0 success,
+ *   @retval -1 timeout,
+ *   @retval -2 repeated call
  * @code
     ....................
     NccPipeInput_t *pInData = ncc_malloc(imageWidth*imageHeight*3);
@@ -241,13 +242,13 @@ extern "C" {
 int sync_process(NccPipeHandle_t *handle, NccPipeInput_t *input, NccPipeOutput_t *output, unsigned int timeout_ms);
 
 /**
- * @fn async_process
  * @brief Inference function,Asynchronous non blocking operation.\n
  * When the device inference is completed, the callback is triggered.
- * @param *handle, Pointer to the inference handle,which has been initialized by SDK.
- * @param *input, Pointer NccPipeInput_t
+ * @param *handle Pointer to the inference handle,which has been initialized by SDK.
+ * @param *input Pointer NccPipeInput_t
  * @return Successful acquisition return or failure
- * @retval 0  Success
+ *   @retval 0  Success
+ * @par example:
  * @code
     ....................
     NccPipeInput_t *pInData = ncc_malloc(imageWidth*imageHeight*3);
@@ -278,37 +279,33 @@ int sync_process(NccPipeHandle_t *handle, NccPipeInput_t *input, NccPipeOutput_t
  */
 int async_process(NccPipeHandle_t *handle, NccPipeInput_t *input);
 
-/**!
- * @fn ncc_pipe_output_read
+/**
  * @brief Gets the output tensor information of the current pipeline
- * @param[in] *handle,pointer to the NccPipeHandle_t
- * @param[in] *pbuf, pointer to buffer
- * @param[in] time_out, option to control blocking read.
+ * @param[in] *handle pointer to the NccPipeHandle_t
+ * @param[in] *pbuf pointer to buffer
+ * @param[in] time_out option to control blocking read.
  * @return Successful acquisition return or failure
- * @retval 0 Success\n
- *        -1 Read error
+ *   @retval 0 Success
+ *   @retval -1 Read error
  */
 int ncc_pipe_queue_read(NccPipeHandle_t *handle, NccPipeOutput_t *pbuf, int time_out);
 
-/**!
- * @fn ncc_malloc
+/**
  * @brief ncc sdk malloc memory block
- * @param[in] size, memory byte size want to malloc
+ * @param[in] size memory byte size want to malloc
  * @return Pointer to the NccPipeInput_t memory block
  * @retval 0 failed
  */
 NccPipeInput_t *ncc_malloc(int size);
 
-/**!
- * @fn ncc_free
+/**
  * @brief ncc sdk free memory block
- * @param[in] *pData, pointer to the NccPipeInput_t memory block
+ * @param[in] *pData pointer to the NccPipeInput_t memory block
  * @return none
  */
 void ncc_free(NccPipeInput_t *buff);
 
 /**
- * @fn ncc_get_dev_number
  * @brief scan all the ncc devices connected with the Host
  * @return Number of devices scanned
  * @retval 0 non ncc devices scanned,others scanned number
@@ -316,46 +313,42 @@ void ncc_free(NccPipeInput_t *buff);
 int ncc_dev_number_get(void);
 
 /**
- * @fn ncc_dev_init
  * @brief Initialize ncc device,if your device don't have flash on it,need download the firmware
- * @param[in] *fw_path, file path of firmware
- * @param[in] dev_num, number of devices scanned
+ * @param[in] *fw_path file path of firmware
+ * @param[in] dev_num number of devices scanned
  * @return return init state
- * @retval >0 Number of devices successfully initialized\n
- *     -1 The input parameter exceeds the maximum number of devices \n
- *     -2 There are no devices need to initialize \n
- *     -3 USB initialization failed
+ *   @retval >0 Number of devices successfully initialized
+ *   @retval -1 The input parameter exceeds the maximum number of devices
+ *   @retval -2 There are no devices need to initialize
+ *   @retval -3 USB initialization failed
  */
 int ncc_dev_init(char *fw_path, int dev_num);
 
-/**!
- * @fn ncc_dev_id_get
+/**
  * @brief Get index of device handle according to handle
- * @param[in] *handle, pointer to the NccPipeHandle_t
+ * @param[in] *handle pointer to the NccPipeHandle_t
  * @return
  * @retval >0 index of device which handle allocated to\n
- *         -1 None corresponding handle created
+ * @retval -1 None corresponding handle created
  */
 int ncc_dev_id_get(NccPipeHandle_t *handle);
 
-/**!
- * @fn ncc_dev_serial_number_get
+/**
  * @brief Get serial number of device according to usb port
- * @param[in] *port, pointer to NccUsbPortSpec_t
+ * @param[in] *port pointer to NccUsbPortSpec_t
  * @param[in] *string buffer to storage serial number
  * @param[in] *size size of string buffer
  * @return
- * @retval  0 Get successfully\n
- *         -1 No corresponding serial number found
- *         -2 Size of buffer is shorter than length of serial number
+ *   @retval  0 Get successfully
+ *   @retval -1 No corresponding serial number found
+ *   @retval -2 Size of buffer is shorter than length of serial number
  */
 int ncc_dev_serial_number_get(NccUsbPortSpec_t *port, char *string, int size);
 
-/**!
- * @fn ncc_pipe_create
+/**
  * @brief Initialize the inference engine, read the parameters from the JSON file and \n
- * @param[in] *handle,pointer to the NccPipeHandle_t
- * @param[in] mode, enum PROCESS_MODE
+ * @param[in] *handle pointer to the NccPipeHandle_t
+ * @param[in] mode enum PROCESS_MODE
  * @return Successful acquisition return or failure
  * @par Sync blocking mode demo：
  * @code
@@ -376,42 +369,40 @@ int ncc_dev_serial_number_get(NccUsbPortSpec_t *port, char *string, int size);
  */
 int ncc_pipe_create(NccPipeHandle_t *handle, PROCESS_MODE mode);
 
-/**!
- * @fn ncc_dev_start
+/**
  * @brief Start all the pipelines on the device with specified serial number
- * @param[in] dev_id, serial number of the device
+ * @param[in] dev_id serial number of the device
  * @return Successful acquisition return or failure
- * @retval 0 Start successfully\n
- *        -1 Start failed
+ *   @retval 0 Start successfully
+ *   @retval -1 Start failed
  */
 int ncc_dev_start(int dev_id);
 
-/**!
- * @fn ncc_pipe_id_get
+/**
  * @brief Get the pipe index of this NccPipeHandle_t on the device.\n
- * Generally speaking, this pipe index is automatically assigned by SDK.
- * @param[in] *handle, pointer to the NccPipeHandle_t
+ * Generally speaking this pipe index is automatically assigned by SDK.
+ * @param[in] *handle pointer to the NccPipeHandle_t
  * @return index of pipe
  */
 int ncc_pipe_id_get(NccPipeHandle_t *handle);
 
-/**!
- * @fn ncc_input_tensor_descriptor_get
+/**
  * @brief Gets the input tensor information of the current pipeline
- * @param[in] *handle,pointer to the NccPipeHandle_t
- * @param[in] *input_tensor,pointer to the NccTensorSpec_t
- * @return 0 Success\n
- *        -1 Failure
+ * @param[in] *handle pointer to the NccPipeHandle_t
+ * @param[in] *input_tensor pointer to the NccTensorSpec_t
+ * @return
+ *   @retval 0 Success
+ *   @retval -1 Failure
  */
 int ncc_input_tensor_descriptor_get(NccPipeHandle_t *handle, NccTensorSpec_t *input_tensor);
 
-/**!
- * @fn ncc_output_tensor_descriptor_get
+/**
  * @brief Gets the output tensor information of the current pipeline
- * @param[in] *handle, pointer to the NccPipeHandle_t
- * @param[in] *output_tensor, pointer to the NccTensorSpec_t
- * @return 0 Success\n
- *        -1 Failure
+ * @param[in] *handle pointer to the NccPipeHandle_t
+ * @param[in] *output_tensor pointer to the NccTensorSpec_t
+ * @return
+ *   @retval  0 Success
+ *   @retval -1 Failure
  */
 int ncc_output_tensor_descriptor_get(NccPipeHandle_t *handle, NccTensorSpec_t *output_tensor);
 

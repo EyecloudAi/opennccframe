@@ -226,7 +226,6 @@ _ncc_invoke (const GstTensorFilterProperties * prop,
 {
     ncc_pdata *pdata = (ncc_pdata *)*private_data;
     NccPipeHandle_t *handle = &(pdata->handle);
-    NccTensorSpec_t *ncc_input_desc = &(pdata->tensor_desc_input);
 
     int buf_size;
     int ret = 0;

@@ -12,13 +12,13 @@
 extern "C" {
 #endif
 
-/*！
+/**
  * @define MAX_MODE_SIZE
  * @brief The maximum of the modes which the ncc cameras supported
 */
 #define MAX_MODE_SIZE   5
 
-/*!
+/**
   * @enum CAM_CTRL_AWB_MODE
   * @brief The WB modes list,could disable or enable the AWB,swithc to MWB mode.
   */
@@ -34,7 +34,7 @@ typedef enum {
     CAMERA_CONTROL_AWB_MODE__SHADE, //! < MWB for SHADE,8
 }CAM_CTRL_AWB_MODE;
 
-/*!
+/**
   * @enum VIDEO_CTRL_OUT_MDOE
   * @brief Set the video stream mode of the ncc camera
   */
@@ -45,7 +45,7 @@ typedef enum
     VIDEO_OUT_CONTINUOUS,    /*! < output continues frames as the frame rates setted */
 }VIDEO_CTRL_OUT_MDOE;
 
-/*!
+/**
   * @struct SensorModesPara_t
   * @brief List of camera control parameters
   */
@@ -61,7 +61,7 @@ typedef struct
     int  maxGain;    //! < max exposure gain value,1600
 } SensorModesPara_t;
 
-/*!
+/**
   * @struct SensorModesList_t
   * @brief List of camera control parameters
   */
@@ -71,18 +71,16 @@ typedef struct
     SensorModesPara_t mode[MAX_MODE_SIZE]; //! < the items of the sensor modes
 } SensorModesList_t;
 
-/**!
- * @fn ncc_dev_id_get
+/**
  * @brief Get index of device handle according to serial number
  * @param[in] *serial_num serial number of device
  * @return
- * @retval >0 index of device controller corresponding to serial number\n
- *         -1 No corresponding serial number found
+ *   @retval >0 index of device controller corresponding to serial number\n
+ *   @retval -1 No corresponding serial number found
  */
 int device_ctrl_id_get(char* serial_num);
 
 /**
- * @fn device_ctrl_get_sensor_mode_list
  * @brief Get mode list which camera supported
  * @param[in] dev_index, the active ncc device scaned by ncc sdk,could use the device's index to config camera
  * @param[out] *list, point to a SensorModesList_t
@@ -105,7 +103,6 @@ int device_ctrl_id_get(char* serial_num);
 int device_ctrl_get_sensor_mode_list(int dev_index, SensorModesList_t* list);
 
 /**
- * @fn device_ctrl_select_sensor_mode
  * @brief Select sensor and resolution
  * @param[in] dev_index [Range from 0 to SensorModesConfig.num]
  * @param[in] mode_index ,selecte the SensorModesPara_t index get from camera
@@ -119,7 +116,6 @@ int device_ctrl_select_sensor_mode(int dev_index, int mode_index);
 
 
 /**
- * @fn device_ctrl_get_fw_version
  * @brief Get firmware version
  * @param[in] dev_index, the active ncc device scaned by ncc sdk,could use the device's index to config camera
  * @param[out] *fw_version, get the firmware version from ncc camera or device
@@ -142,7 +138,6 @@ int device_ctrl_select_sensor_mode(int dev_index, int mode_index);
 int device_ctrl_get_fw_version(int dev_index, char* fw_version, int size);
 
 /**
- * @fn camera_ctrl_ae_enabled
  * @brief Enable AE of the camera.
  * @param[in] dev_index [Range from 0 to SensorModesConfig.num]
  * @return Successful acquisition return or failure
@@ -154,7 +149,6 @@ int camera_ctrl_ae_enabled(int dev_index);
 
 
 /**
- * @fn camera_ctrl_me_set_exp_gain
  * @brief Set the exposure time and gain of the camera
  * @param[in] dev_index, if detected more than two cameras ,need selete one [Range from 0 to SensorModesConfig.num]
  * @param[in] exp_us,[unit: us, Max value: 1/fps*1000*1000]
@@ -166,13 +160,11 @@ int camera_ctrl_ae_enabled(int dev_index);
 int camera_ctrl_me_set_exp_gain(int dev_index, unsigned int exp_us, unsigned int iso_val);
 
 /**
- * @fn camera_ctrl_set_awb_mode
  * @brief Set white balance mode
  * @param[in] dev_index, if detected more than two cameras ,need selete one [Range from 0 to SensorModesConfig.num]
  * @param[in] awb_mode,CAM_CTRL_AWB_MODE mode
  * @return Successful acquisition return or failure
  * @retval 0  success, others follow enum usb_error
- * @par null
  */
 int camera_ctrl_set_awb_mode(int dev_index, CAM_CTRL_AWB_MODE awb_mode);
 

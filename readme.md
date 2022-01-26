@@ -24,7 +24,7 @@ For more details, please press [here](https://eyecloudai.github.io/openncc_frame
 
 ---
 
-<font color="blue">**Tips**</font>
+<font color="blue">**Note**</font>
 Developers who are not familiar with the GStreamer framework can develop based on the native SDK. But we suggest that developers start their work from the GStreamer framework.
 
 ---

@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 """
-@file		nnstreamer_example_image_classification_tflite.py
-@date		18 July 2018
+@file		example_pic_face_detection_ncc.py
+@date		26 Jan. 2022
 @brief		Tensor stream example with filter
-@see		https://github.com/nnsuite/nnstreamer
-@author		Jaeyun Jung <jy1210.jung@samsung.com>
+@see		https://github.com/EyecloudAi/openncc_frame
+@author		Zed <zhangdi@eyecloud.tech>
 @bug		No known bugs.
 
 NNStreamer example for image classification using tensorflow-lite.
@@ -16,20 +16,6 @@ v4l2src -- tee -- textoverlay -- videoconvert -- ximagesink
             --- videoscale -- tensor_converter -- tensor_filter -- tensor_sink
 
 This app displays video sink.
-
-'tensor_filter' for image classification.
-Get model by
-$ cd $NNST_ROOT/bin
-$ bash get-model.sh image-classification-tflite
-
-'tensor_sink' updates classification result to display in textoverlay.
-
-Run example :
-Before running this example, GST_PLUGIN_PATH should be updated for nnstreamer plugin.
-$ export GST_PLUGIN_PATH=$GST_PLUGIN_PATH:<nnstreamer plugin path>
-$ python nnstreamer_example_image_classification_tflite.py
-
-See https://lazka.github.io/pgi-docs/#Gst-1.0 for Gst API details.
 """
 
 import os
@@ -37,11 +23,10 @@ import sys
 sys.path.append('/usr/lib/python3/dist-packages')
 import logging
 import gi
+import argparse
 
 gi.require_version('Gst', '1.0')
 from gi.repository import Gst, GObject
-
-
 
 class NNStreamerExample:
     """NNStreamer example for image classification."""
@@ -51,10 +36,16 @@ class NNStreamerExample:
         self.pipeline = None
         self.running = False
 
+        self.FILEPATH = argv[1]
+        self.IMAGE_WIDTH = argv[2]
+        self.IMAGE_HEIGHT = argv[3]
+
+        self.FACE_MODEL_WIDTH = 300
+        self.FACE_MODEL_HEIGHT = 300
+
         GObject.threads_init()
         Gst.init(argv)
 
-    def run_example(self):
         """Init pipeline and run example.
 
         :return: None
@@ -64,16 +55,17 @@ class NNStreamerExample:
 
         # init pipeline
         self.pipeline = Gst.parse_launch(
-            'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! '
-            'xvimagesink v4l2src device=/dev/video2 ! videorate ! videoconvert ! videoscale ! '
-            'video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t t. ! '
-            'queue ! mix.sink_0  t. ! queue  ! videoconvert ! videoscale ! '
-            'video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! '
+            'filesrc location=' + str(self.FILEPATH) + '  ! jpegdec ! videoscale ! videoconvert ! '
+            'video/x-raw,width=' + str(self.IMAGE_WIDTH) + ',height=' + str(self.IMAGE_HEIGHT) + ',format=RGB,framerate=0/1 ! tee name=t '
+            't. ! queue ! mix.sink_0 '
+            't. ! queue  ! videoconvert ! videoscale ! '
+            'video/x-raw, width=' + str(self.FACE_MODEL_HEIGHT) + ', height=' + str(self.FACE_MODEL_HEIGHT) + ', format=BGR !         tensor_converter ! '
             'tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !  '
             'tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  ! '
-            'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! mix.sink_1 '
+            'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=' + str(self.IMAGE_WIDTH) + ':' + str(self.IMAGE_HEIGHT) + ' option5=' + str(self.FACE_MODEL_HEIGHT) + ':' + str(self.FACE_MODEL_HEIGHT) + ' ! mix.sink_1 '
+            'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! imagefreeze ! autovideosink' 
         )
-
+ 
         # bus and message callback
         bus = self.pipeline.get_bus()
         bus.add_signal_watch()
@@ -147,5 +139,4 @@ class NNStreamerExample:
         return True
 
 if __name__ == '__main__':
-    example = NNStreamerExample(sys.argv[1:])
-    example.run_example()
+    example = NNStreamerExample(sys.argv)                 

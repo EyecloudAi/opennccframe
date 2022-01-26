@@ -30,6 +30,12 @@ The openncc native SDK provides the following working modes:
 * In this mode, openncc is a combination of USB camera and AI accelerator card. The HD and 4K sensors supported by openncc are connected. After completing the ISP on the VPU, it outputs the video stream to the Host APP as a standard UVC camera.
 * At the same time, it supports configuration, directly connect the video stream after ISP on the camera to the local inference pipeline of the camera, and output the inference results to the host app. This mode avoids downloading pictures to the inference engine, reduces the processing delay and saves bandwidth. The inference pipeline is configured through openncc model [JSON](https://eyecloudai.github.io/openncc_frame/tutorials/how-to-write-json-config.html).
 
+## Native API VPU Reference
+
+More details please press [here](https://eyecloudai.github.io/openncc_frame/native-api/index.html) .
+
+
+
 ---
 [1]:../docs/mainres/ncsmode.png
 [2]:../docs/mainres/mulitincs.png
