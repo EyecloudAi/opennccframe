@@ -1,6 +1,6 @@
 ## Introduction
 
-This example is used to run serial synchronous face detection and face feature point marking inference with camera video(YU12) streaming on NCC .
+This example is used to run serial synchronous face detection and landmarks regression inference with camera video(YU12) streaming on NCC .
 
 ```
 video(YU12) -> sync inference -> face image(BGR) -> sync inference -> composite display
