@@ -1,0 +1,17 @@
+Source: opennccframe
+Section: libs
+Priority: optional
+Maintainer: Jon Zhao <jnzhao@eyecloud.tech>
+Build-Depends: gcc-9 | gcc-8 | gcc-7 | gcc-6 | gcc-5 (>=5.4),
+ ninja-build, meson (>=0.49), debhelper (>=9),
+ libgstreamer1.0-dev, libgstreamer-plugins-base1.0-dev, libglib2.0-dev,
+ gstreamer1.0-tools, gstreamer1.0-plugins-base, gstreamer1.0-plugins-good,
+ libgtest-dev, libpng-dev, libopencv-dev, liborc-0.4-dev, flex, bison,
+ python, python3, python3-dev, python3-numpy, python2.7-dev,
+
+Package: opennccframe
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: OpenNCC Frame and NNStreamer plugins and firmware for Gstreamer and Native VPU
+ Gstreamer and NNStreamer plugins, "OpenNCC", provides access to neural network framework(OpenNCC) for media streams.

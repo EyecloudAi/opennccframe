@@ -6,12 +6,23 @@ if [ -z $1 ];then
     exit
 fi
 
-project_path=$(cd `dirname $0`;pwd)
-install_path=/usr/local/lib/openncc
-include_path=/usr/local/include/openncc
+if [ -z $2 ];then
+    echo "Please input cmd as (sudo ./install [<platform>][<dest install dir>]). "
+    echo "defalut dir:/usr"
+    destdir=/usr
+else
+    destdir=$2
+fi
 
-resource_path=$project_path/native_vpu_api/platform_engine
-firmware_path=$project_path/native_vpu_api/firmware
+multiarch=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
+project_path=$(cd `dirname $0`;pwd)
+install_pkg_path=$destdir/lib/pkgconfig
+install_path=$destdir/lib/openncc
+include_path=$destdir/include/openncc
+
+native_lib_path=$project_path/native_vpu_api
+resource_path=$native_lib_path/platform_engine
+firmware_path=$native_lib_path/firmware
 model_path=$project_path/model_zoo
 
 if [ ! -d "$install_path" ];then
@@ -39,6 +50,10 @@ fi
 cp $firmware_path/* $install_path
 cp $resource_path/include/* $include_path
 cp -r $model_path $install_path
+if [ ! -d "$install_pkg_path" ];then
+	mkdir $install_pkg_path
+fi	
+#cp -f $native_lib_path/OpenNCC_native.pc  $install_pkg_path/
 
 echo "Installing $firmware_path to $install_path"
 echo "Installing $resource_path/include to $include_path"

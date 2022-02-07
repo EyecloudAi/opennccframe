@@ -1,0 +1,80 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+#export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+ROOT_DIR:=$(shell pwd)
+export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+export DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+export BUILDDIR=build
+export NNSTREAMER_SOURCE_ROOT_PATH=$(ROOT_DIR)/nnstmp
+export NNSTREAMER_BUILD_ROOT_PATH=${NNSTREAMER_SOURCE_ROOT_PATH}/${BUILDDIR}
+export GST_PLUGIN_PATH=${NNSTREAMER_BUILD_ROOT_PATH}/gst:${NNSTREAMER_BUILD_ROOT_PATH}/ext
+export NNSTREAMER_CONF=${NNSTREAMER_BUILD_ROOT_PATH}/nnstreamer-test.ini
+export NNSTREAMER_FILTERS=${NNSTREAMER_BUILD_ROOT_PATH}/ext/nnstreamer/tensor_filter
+export NNSTREAMER_DECODERS=${NNSTREAMER_BUILD_ROOT_PATH}/ext/nnstreamer/tensor_decoder
+export NNSTREAMER_CONVERTERS=${NNSTREAMER_BUILD_ROOT_PATH}/ext/nnstreamer/tensor_converter
+export NNCFRAME_ROOT_DIR=$(ROOT_DIR)
+export NCCFRAME_SOURCE_ROOT_PATH=$(ROOT_DIR)/nnstreamer
+export NCCFRAME_BUILD_ROOT_PATH=$(ROOT_DIR)/nnstreamer/${BUILDDIR}
+export PYTHONIOENCODING=utf-8
+
+CXXFLAGS = -g -O2
+
+%:
+	dh $@ 
+
+override_dh_auto_clean:
+	rm -rf ${NNSTREAMER_BUILD_ROOT_PATH}
+	rm -rf ${NCCFRAME_BUILD_ROOT_PATH}
+
+override_dh_auto_configure:
+ifeq ($(wildcard nnstmp),)
+	@echo "NNStreamer not found. Start to clone nnstreamer repo"
+	git clone https://github.com/nnstreamer/nnstreamer nnstmp
+endif
+	cd nnstmp;\
+#	git checkout 1356c2a43cd25fb94 && git reset --hard
+# config the nnstreamer  
+	cd ${NCCFRAME_SOURCE_ROOT_PATH};\
+	cp 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch ${NNSTREAMER_SOURCE_ROOT_PATH}
+	cd ${NNSTREAMER_SOURCE_ROOT_PATH};\
+#	git apply 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch
+# According to Debian policy (and, IIRC, the Filesystem Hierarchy Standard or FHS), official Debian packages are not permitted to own files or directories under /usr/local
+	cd ${NNSTREAMER_SOURCE_ROOT_PATH} && mkdir -p build;\
+	meson --buildtype=plain --prefix=/usr --sysconfdir=/etc --libdir=lib/$(DEB_HOST_MULTIARCH) --bindir=lib/nnstreamer/bin --includedir=include -Denable-test=false ${BUILDDIR}
+	@echo "Start to config ncc frame meson build"
+	cd ${NCCFRAME_SOURCE_ROOT_PATH} && mkdir -p build;\
+	meson --buildtype=plain --prefix=/usr --sysconfdir=/etc --libdir=lib/$(DEB_HOST_MULTIARCH) --bindir=lib/openncc/bin --includedir=include ${BUILDDIR}
+
+
+override_dh_auto_build:
+	cd ${NNSTREAMER_SOURCE_ROOT_PATH} && ninja -C ${BUILDDIR}
+	cd ${NCCFRAME_SOURCE_ROOT_PATH} && ninja -C ${BUILDDIR}
+	
+
+override_dh_auto_install:
+	DESTDIR=$(CURDIR)/debian/tmp ninja -C ${NNSTREAMER_BUILD_ROOT_PATH} install
+#TODO: could be improved
+	./install.sh ubuntu $(CURDIR)/debian/tmp/usr
+	DESTDIR=$(CURDIR)/debian/tmp ninja -C ${NCCFRAME_BUILD_ROOT_PATH} install
+	cp -rf nnstreamer/example $(CURDIR)/debian/tmp/usr/lib/openncc
+
+override_dh_install:
+#	dh_install
+	dh_install --sourcedir=debian/tmp --list-missing
+# Add --fail-missing option after adding *.install files for all subpackages.
+
+
+override_dh_clean:
+	dh_clean $@
+

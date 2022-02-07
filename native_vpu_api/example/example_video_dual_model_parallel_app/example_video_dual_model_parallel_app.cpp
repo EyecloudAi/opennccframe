@@ -232,7 +232,7 @@ int main(int argc, char* argv[])
     }
 
     /* 2.initialize device, load firmware */
-    ret = ncc_dev_init("/usr/local/lib/openncc/OpenNcc.mvcmd", devNum);
+    ret = ncc_dev_init("/usr/lib/openncc/OpenNcc.mvcmd", devNum);
     if(ret<0)
     {
         printf("ncc_dev_init error\n");

@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
     }
 
     /* 2.initialize device, load firmware */
-    ret = ncc_dev_init("/usr/local/lib/openncc/OpenNcc.mvcmd", devNum);
+    ret = ncc_dev_init("/usr/lib/openncc/OpenNcc.mvcmd", devNum);
     if(ret<0)
     {
         printf("ncc_dev_init error\n");
@@ -69,8 +69,8 @@ int main(int argc, char* argv[])
     NccPipeHandle_t handle = { NULL,\
                                  "",\
                                  "face-detection-retail-0004",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
 
     /* 3.create handle, synchronous mode */
     ret=ncc_pipe_create(&handle, NCC_SYNC);

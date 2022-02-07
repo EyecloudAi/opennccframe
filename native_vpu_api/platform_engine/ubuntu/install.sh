@@ -6,7 +6,7 @@ if [ -z $1 ];then
 fi
 
 project_path=$(cd `dirname $0`;pwd)
-install_path=/usr/local/lib/openncc
+install_path=/usr/lib/openncc
 
 library=$project_path/libOpenNCC_native.so
 boot_tool=$project_path/moviUsbBoot

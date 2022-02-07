@@ -1,0 +1,13 @@
+# Package Information for pkg-config, for openncc frame native sdk
+
+prefix=/usr
+exec_prefix=/usr/lib/openncc/example
+libdir=/usr/lib/openncc
+includedir=/usr/include/openncc
+
+Name: OpenNCC_native
+Description: Dev Kit SDK of Native API for OpenNCC VPU
+Version: 22.01.01
+Requires:
+Libs: -L${libdir} -lOpenNCC_native
+Cflags: -I${includedir}/

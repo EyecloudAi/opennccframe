@@ -7,7 +7,7 @@ base_deps = [
   ncc_dep
 ]
 
-incdir = include_directories('/usr/local/include/openncc')
+incdir = include_directories('/usr/include/openncc')
 
 sources = [
   'tensor_filter_ncc.cpp'
