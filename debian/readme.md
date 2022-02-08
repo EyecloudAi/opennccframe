@@ -23,8 +23,9 @@ $gedit debian/changelog
 $export DEB_BUILD_OPTIONS="parallel=$(($(cat /proc/cpuinfo |grep processor|wc -l) + 1))"  
 $cd debian
 $time debuild -us -uc  
+#In the process,it would automatic download nnstreamer from github.If you already have it,you clould copy it to opennccframe,and rename it to nnstmp.That will skipp re-download the repo.  
 ### Install the generated .deb files.
-$sudo apt install ./nnstreamer_0.1.0-1rc1_amd64.deb  
+$sudo apt install ./opennccframe_22.01.01_amd64.deb  
 
 ### check .deb
 dpkg-deb -c  packageName

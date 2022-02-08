@@ -43,12 +43,12 @@ ifeq ($(wildcard nnstmp),)
 	git clone https://github.com/nnstreamer/nnstreamer nnstmp
 endif
 	cd nnstmp;\
-#	git checkout 1356c2a43cd25fb94 && git reset --hard
+	git checkout 1356c2a43cd25fb94 && git reset --hard
 # config the nnstreamer  
 	cd ${NCCFRAME_SOURCE_ROOT_PATH};\
 	cp 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch ${NNSTREAMER_SOURCE_ROOT_PATH}
 	cd ${NNSTREAMER_SOURCE_ROOT_PATH};\
-#	git apply 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch
+	git apply 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch
 # According to Debian policy (and, IIRC, the Filesystem Hierarchy Standard or FHS), official Debian packages are not permitted to own files or directories under /usr/local
 	cd ${NNSTREAMER_SOURCE_ROOT_PATH} && mkdir -p build;\
 	meson --buildtype=plain --prefix=/usr --sysconfdir=/etc --libdir=lib/$(DEB_HOST_MULTIARCH) --bindir=lib/nnstreamer/bin --includedir=include -Denable-test=false ${BUILDDIR}
