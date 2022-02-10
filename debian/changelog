@@ -1,3 +1,8 @@
+opennccframe (22.02.01) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Jon <jnzhao@eyecloud.tech>  Wed, 9 Feb 2022 17:25:11 +0800
 opennccframe (22.01.01) unstable; urgency=medium
 
   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>

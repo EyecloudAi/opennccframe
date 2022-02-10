@@ -64,7 +64,7 @@ gstvideo_dep = dependency('gstreamer-video-1.0')
 gstallocators_dep = dependency('gstreamer-allocators-1.0')
 
 nnstreamer_dep = dependency('nnstreamer')
-ncc_lib_dir = '/usr/local/lib/openncc'
+ncc_lib_dir = '/usr/lib/openncc'
 ncc_dep = cxx.find_library('OpenNCC_native', dirs : ncc_lib_dir)
 
 # Build nnstreamer (common, plugins)

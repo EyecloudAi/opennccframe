@@ -1,8 +1,9 @@
 #!/bin/bash
 
+# auto: means automatic detect the $libdir
 if [ -z $1 ];then
     echo "Please input cmd as (sudo ./install [<platform>]). "
-    echo "[<platform>]: [ubuntu][rk3568][raspi4]"
+    echo "[<platform>]: [ubuntu][rk3568][raspi4][auto]"
     exit
 fi
 
@@ -42,6 +43,20 @@ fi
 if [ $1 = "ubuntu"  ] || [ $1 = "rk3568" ] || [ $1 = "raspi4" ];then 
     echo "Starting to install OpenNCC Native libs for $1"
     cd $resource_path/$1/
+    ./install.sh $install_path
+elif [ $1 = "auto"  ];then
+    if [[ `uname -a` =~ "x86_64" ]]; then
+	install_arch=ubuntu
+    elif [[ `uname -a` =~ "ARM-V8" ]]; then
+	install_arch=rk3568
+    elif [[ `uname -a` =~ "ARMv7l" ]]; then
+	install_arch=raspi4
+    else
+	install_arch=unknown
+    	echo "Unknown platform!"
+    fi
+    echo "Detected ARCH: $install_arch "
+    cd $resource_path/$install_arch/
     ./install.sh $install_path
 else
     echo "Unknown platform!"

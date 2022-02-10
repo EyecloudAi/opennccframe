@@ -61,7 +61,7 @@ class NNStreamerExample:
             't. ! queue  ! videoconvert ! videoscale ! '
             'video/x-raw, width=' + str(self.FACE_MODEL_HEIGHT) + ', height=' + str(self.FACE_MODEL_HEIGHT) + ', format=BGR !         tensor_converter ! '
             'tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !  '
-            'tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  ! '
+            'tensor_filter framework=ncc  model=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  ! '
             'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=' + str(self.IMAGE_WIDTH) + ':' + str(self.IMAGE_HEIGHT) + ' option5=' + str(self.FACE_MODEL_HEIGHT) + ':' + str(self.FACE_MODEL_HEIGHT) + ' ! mix.sink_1 '
             'compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! imagefreeze ! autovideosink' 
         )

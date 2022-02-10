@@ -64,10 +64,10 @@ override_dh_auto_build:
 
 override_dh_auto_install:
 	DESTDIR=$(CURDIR)/debian/tmp ninja -C ${NNSTREAMER_BUILD_ROOT_PATH} install
-#TODO: could be improved
-	./install.sh ubuntu $(CURDIR)/debian/tmp/usr
+	./install.sh auto $(CURDIR)/debian/tmp/usr
 	DESTDIR=$(CURDIR)/debian/tmp ninja -C ${NCCFRAME_BUILD_ROOT_PATH} install
 	cp -rf nnstreamer/example $(CURDIR)/debian/tmp/usr/lib/openncc
+	cp -rf native_vpu_api/example $(CURDIR)/debian/tmp/usr/lib/openncc
 
 override_dh_install:
 #	dh_install

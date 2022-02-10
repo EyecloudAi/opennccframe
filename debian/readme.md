@@ -7,7 +7,7 @@ $ sudo apt-get update
 $sudo apt-get install libprotobuf-dev
 $git clone https://github.com/nnstreamer/nnstreamer
 $cd nnstreamer
-$meson build --prefix=/ --sysconfdir=/etc --libdir=/usr/lib --bindir=/usr/bin --includedir=/usr/include
+$meson build --prefix=/usr --sysconfdir=/etc --libdir=/usr/lib --bindir=/usr/bin --includedir=/usr/include
 $ninja -C build install
 ### Prepare for debuild (installing required dependencies).
 You need on the root path of the opennccframe project  
