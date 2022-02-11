@@ -113,7 +113,7 @@ _ncc_open (const GstTensorFilterProperties * prop, void **private_data)
     }
 
     //load firmware
-    ret = ncc_dev_init((char*)"/usr/local/lib/openncc/OpenNcc.mvcmd", devNum);
+    ret = ncc_dev_init((char*)"/usr/lib/openncc/OpenNcc.mvcmd", devNum);
     if(ret<0)
     {
         nns_logf("ncc_dev_init error\n");

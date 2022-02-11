@@ -8,14 +8,14 @@ CXX := $(CROSS_COMPILE) g++ -std=c++11
 AR  := $(CROSS_COMPILE) ar 
 
 CFLAGS = -D _GNU_SOURCE -Wall  -O2 
-INCDIRS = /usr/local/include/openncc \
+INCDIRS = /usr/include/openncc \
 
 OPENCV   = `pkg-config opencv --cflags --libs` 
 
 LIBS     = -lrt -ldl  -lusb-1.0  -lpthread 
 LDFLAGS +=  $(OPENCV) 
 
-TARGET_LIB = /usr/local/lib/openncc/libOpenNCC_native.so
+TARGET_LIB = /usr/lib/openncc/libOpenNCC_native.so
 BINDIR = build
 ###########################################################################
 TEST_SOURCES = $(wildcard *.cpp)

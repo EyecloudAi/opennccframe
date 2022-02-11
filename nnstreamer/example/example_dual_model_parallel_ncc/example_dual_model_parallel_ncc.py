@@ -66,9 +66,9 @@ class NNStreamerExample:
             't. ! queue ! mix.sink_0       t. ! queue  ! videoconvert ! videoscale ! '
             'video/x-raw,width=300,height=300, format=BGR !    tensor_converter ! '
 						'tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 ! '    
-						'tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !   '
+						'tensor_filter framework=ncc  model=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !   '
 						'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1280:720 option5=300:300 ! mix.sink_1 t. ! queue ! mix2.sink_0 t. ! queue  ! videoconvert ! videoscale ! video/x-raw,width=544,height=320,format=BGR !     tensor_converter ! tensor_transform mode=typecast option=uint8 ! '
-						'tensor_transform mode=dimchg option=0:2 !  tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/person-detection-retail-0013.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/config/input_BGR.json silent=false accelerator=true  ! '
+						'tensor_transform mode=dimchg option=0:2 !  tensor_filter framework=ncc  model=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/person-detection-retail-0013.blob custom=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/config/input_BGR.json silent=false accelerator=true  ! '
 						'tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1280:720 option5=544:320 ! mix2.sink_2'						
         )
 

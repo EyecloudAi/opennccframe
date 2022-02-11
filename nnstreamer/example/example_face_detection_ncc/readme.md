@@ -25,22 +25,22 @@ $ sudo apt-get install libopencv-dev
 
 ## For X86 ubuntu system:  
 $ sudo -s
-$ export GST_PLUGIN_PATH=/usr/local/lib/x86_64-linux-gnu/gstreamer-1.0/
+$ export GST_PLUGIN_PATH=/usr/lib/x86_64-linux-gnu/gstreamer-1.0/
 
 ## For ARM-V8 system would be:
 $ sudo -s
-$ export GST_PLUGIN_PATH=/usr/local/lib/aarch64-linux-gnu/gstreamer-1.0/
+$ export GST_PLUGIN_PATH=/usr/lib/aarch64-linux-gnu/gstreamer-1.0/
 it is depended on your {libdir}  
 
 ## For RasPi4 (ARMv7l) system would be:  
 $ sudo -s
-$ export GST_PLUGIN_PATH=/usr/local/lib/arm-linux-gnueabihf/gstreamer-1.0/
+$ export GST_PLUGIN_PATH=/usr/lib/arm-linux-gnueabihf/gstreamer-1.0/
 it is depended on your {libdir}  
 
 #run application
 
 ## CLI
-gst-launch-1.0 -v compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! xvimagesink v4l2src device=/dev/video2 ! videorate ! videoconvert ! videoscale ! video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t       t. ! queue ! mix.sink_0       t. ! queue  ! videoconvert ! videoscale ! video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !         tensor_filter framework=ncc  model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !         tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! mix.sink_1
+gst-launch-1.0 -v compositor name=mix sink_0::zorder=1 sink_1::zorder=2 ! videoconvert ! xvimagesink v4l2src device=/dev/video2 ! videorate ! videoconvert ! videoscale ! video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! tee name=t       t. ! queue ! mix.sink_0       t. ! queue  ! videoconvert ! videoscale ! video/x-raw,height=300,width=300,format=BGR !         tensor_converter ! tensor_transform mode=typecast option=uint8 ! tensor_transform mode=dimchg option=0:2 !         tensor_filter framework=ncc  model=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob custom=/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json silent=false accelerator=true  !         tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! mix.sink_1
 
 * if warning: bash: gst-launch-1.0: command not found,we need install gst-launch-1.0  
 $ sudo apt-get install gstreamer1.0-tools   
