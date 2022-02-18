@@ -1,1 +1,3 @@
-to do ...
+sudo gst-launch-1.0 -v ncctensorsrc model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob configure=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_camera.json ! other/tensor,framerate=15/1,dimension=7:200:1:1,type=float32 ! tensor_decoder mode=bounding_boxes option1=ov-person-detection option4=1920:1080 option5=300:300 ! videoconvert! video/x-raw,width=1920,height=1080,format=YV12,framerate=15/1 ! xvimagesink
+
+sudo gst-launch-1.0 -v ncctensorsrc model=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob configure=/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_camera.json ! tensor_sink

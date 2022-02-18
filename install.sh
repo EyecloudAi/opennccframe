@@ -9,17 +9,18 @@ fi
 
 if [ -z $2 ];then
     echo "Please input cmd as (sudo ./install [<platform>][<dest install dir>]). "
-    echo "defalut dir:/usr"
-    destdir=/usr
+    echo "defalut dir:/"
+    destdir=""
 else
     destdir=$2
 fi
 
 multiarch=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
 project_path=$(cd `dirname $0`;pwd)
-install_pkg_path=$destdir/lib/pkgconfig
-install_path=$destdir/lib/openncc
-include_path=$destdir/include/openncc
+install_pkg_path=$destdir/usr/lib/pkgconfig
+install_path=$destdir/usr/lib/openncc
+include_path=$destdir/usr/include/openncc
+rule_path=$destdir/etc/udev/rules.d
 
 native_lib_path=$project_path/native_vpu_api
 resource_path=$native_lib_path/platform_engine
@@ -27,17 +28,21 @@ firmware_path=$native_lib_path/firmware
 model_path=$project_path/model_zoo
 
 if [ ! -d "$install_path" ];then
-    mkdir $install_path
+    mkdir -p $install_path
 else
     rm -r $install_path
-    mkdir $install_path
+    mkdir -p $install_path
 fi
 
 if [ ! -d "$include_path" ];then
-    mkdir $include_path
+    mkdir -p $include_path
 else
     rm -r $include_path
-    mkdir $include_path
+    mkdir -p $include_path
+fi
+
+if [ ! -d "$rule_path" ];then
+    mkdir -p $rule_path
 fi
 
 if [ $1 = "ubuntu"  ] || [ $1 = "rk3568" ] || [ $1 = "raspi4" ];then 
@@ -64,6 +69,9 @@ fi
 
 cp $firmware_path/* $install_path
 cp $resource_path/include/* $include_path
+cp $native_lib_path/96-openncc.rules $rule_path
+sudo udevadm control --reload-rules
+sudo udevadm trigger
 cp -r $model_path $install_path
 if [ ! -d "$install_pkg_path" ];then
 	mkdir $install_pkg_path
@@ -73,4 +81,4 @@ fi
 echo "Installing $firmware_path to $install_path"
 echo "Installing $resource_path/include to $include_path"
 echo "Installing $model_path to $install_path"
-
+echo "Installing $native_lib_path/96-openncc.rules to $rule_path"

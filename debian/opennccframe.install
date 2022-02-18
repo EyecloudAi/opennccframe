@@ -1,4 +1,5 @@
-/etc/nnstreamer.ini 
+/etc/nnstreamer.ini
+/etc/udev/rules.d/96-openncc.rules
 /usr/include/nnstreamer/nnstreamer_*.h
 /usr/include/nnstreamer/*.hh
 /usr/include/openncc/*.h

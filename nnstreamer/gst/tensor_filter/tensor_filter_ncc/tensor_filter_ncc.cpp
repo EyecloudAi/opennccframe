@@ -82,8 +82,7 @@ _ncc_reopen (const GstTensorFilterProperties * prop, void **private_data)
 static int
 _ncc_open (const GstTensorFilterProperties * prop, void **private_data)
 {
-    /* Variables of the data types from nccsdk.h */
-    NccPipeHandle_t handle;
+    /* Variables of the data types from native_vpu_api.h */
     NccTensorSpec_t tensor_desc_input;
     NccTensorSpec_t tensor_desc_output;
     /* Normal variables */
@@ -131,23 +130,23 @@ _ncc_open (const GstTensorFilterProperties * prop, void **private_data)
     if ((prop->num_models > 0) ||(prop->custom_properties != NULL))
     {
         if(prop->output_meta.info[0].name != NULL)
-            sprintf(handle.pipe_name , prop->output_meta.info[0].name);
+            sprintf(pdata->handle.pipe_name , prop->output_meta.info[0].name);
         else
         {
             str_model = g_strsplit_set (prop->model_files[0], "/.", -1);
             num_path = g_strv_length (str_model);
-            strcpy(handle.pipe_name , str_model[num_path-2]);
+            strcpy(pdata->handle.pipe_name , str_model[num_path-2]);
             nns_logd("pipe_name %s\n",str_model[num_path-2]);
         }
 
-        if(strlen(prop->model_files[0])<sizeof(handle.model_path))
-            strcpy(handle.model_path , prop->model_files[0]);
+        if(strlen(prop->model_files[0])<sizeof(pdata->handle.model_path))
+            strcpy(pdata->handle.model_path , prop->model_files[0]);
         else
             nns_logf("model path too long.\n");
 
         if(prop->custom_properties != NULL){
-            if(strlen(prop->custom_properties)<sizeof(handle.json_path))
-                strcpy(handle.json_path, prop->custom_properties);
+            if(strlen(prop->custom_properties)<sizeof(pdata->handle.json_path))
+                strcpy(pdata->handle.json_path, prop->custom_properties);
             else
                 nns_logf("json config path too long.\n");
         }
@@ -162,7 +161,7 @@ _ncc_open (const GstTensorFilterProperties * prop, void **private_data)
     }
 
     /* create handle, synchronous mode */
-    ret = ncc_pipe_create(&handle, NCC_SYNC);
+    ret = ncc_pipe_create(&pdata->handle, NCC_SYNC);
 
     if(ret<0)
     {
@@ -179,21 +178,20 @@ _ncc_open (const GstTensorFilterProperties * prop, void **private_data)
     }
 
     //get tensor descriptor
-    ret = ncc_input_tensor_descriptor_get(&handle, &tensor_desc_input);
+    ret = ncc_input_tensor_descriptor_get(&pdata->handle, &tensor_desc_input);
     if(ret<0)
     {
         nns_logf("ncc_input_tensor_descriptor_get error %d !\n", ret);
         return -1;
     }
 
-    ret = ncc_output_tensor_descriptor_get(&handle, &tensor_desc_output);
+    ret = ncc_output_tensor_descriptor_get(&pdata->handle, &tensor_desc_output);
     if(ret<0)
     {
         nns_logf("ncc_output_tensor_descriptor_get error %d !\n", ret);
         return -1;
     }
 
-    pdata->handle = handle;
     pdata->tensor_desc_input = tensor_desc_input;
     pdata->tensor_desc_output = tensor_desc_output;
     *private_data = (void *) pdata;

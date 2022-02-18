@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ATTRS{idProduct}=="2485", ATTRS{idVendor}=="03e7", GROUP="users", MODE="0666", ENV{ID_MM_DEVICE_IGNORE}="1"
+KERNEL=="video*", SUBSYSTEM=="video4linux", ATTR{index}=="0", ATTR{name}=="Eyecloud AI Camera: AI Camera", SYMLINK+="openncc"

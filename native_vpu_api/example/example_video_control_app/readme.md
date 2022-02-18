@@ -18,8 +18,8 @@ $ sudo apt-get install libopencv-dev
 ## Build
 
 ```shell
-make all
-cd build
-sudo ./example_video_control_app /dev/video*
+$ make all
+$ cd build
+$ sudo ./example_video_control_app /dev/openncc
 ```
 

@@ -24,5 +24,5 @@ $ sudo apt-get install libopencv-dev
 ```shell
 $ make all
 $ cd build
-$ sudo ./example_video_dual_model_serial_app /dev/video*
+$ sudo ./example_video_dual_model_serial_app /dev/openncc
 ```
