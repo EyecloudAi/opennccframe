@@ -1,0 +1,42 @@
+{
+        "blob":           "face-detection-adas-0001",
+        "Function": " the input image is in bgr_planar_u8 format, and converts it into BGR_PLANAR_FP16 format. The tensor output is fp32 format",
+
+        "nccVideoConvert": {
+            "enabled":   1,    
+            "linkIn"     :  "input",
+            "inputTensor": [1,3,62,62],  
+            "inputType": "bgr_planar_u8",    
+            "ROI": [0, 0,62, 62],
+            "meanValue": [0,0,0],
+            "stdValue": 1,
+            "outputTensor": [1,3,62,62],  
+            "outputType": "BGR_PLANAR_FP16",      
+            "linkOut"     :  "nccInference"       
+        },
+
+        "nccInference": {
+            "enabled": 1,    
+            "linkIn"     :  "nccVideoConvert",
+            "inputTensor": [1,3,62,62],  
+            "inputType": "BGR_PLANAR_FP16",  
+            "extInputs1": [0],  
+            "extInputs2": [0],
+            "extInputs3": [0],
+            "outputTensor": [1,1,200,7],  
+            "outputTensor2": [0],  
+            "outputType": "CV_FP16",   
+            "linkOut"     :  "nccTensorConvert"     
+        },
+
+        "nccTensorConvert": {
+            "enabled": 1,
+            "linkIn"     :  "nccInference",
+            "inputTensor": [1,1,200,7],  
+            "inputType": "CV_FP16",  
+            "outputTensor1": [1,1,200,7],   
+            "outputType": "CV_FP32",   
+            "linkOut"     :  "output"   
+        }
+}
+
