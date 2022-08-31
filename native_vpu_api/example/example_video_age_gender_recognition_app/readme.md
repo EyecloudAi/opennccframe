@@ -1,6 +1,6 @@
 ## Introduction
 
-This example is used to run synchronous age and gender recognition inference on NCC with image.
+This example is used to run synchronous age and gender recognition inference on NCC with notebook UVC camera.
 
 ```
 image(BGR) -> sync inference -> display
@@ -24,5 +24,5 @@ $ sudo apt-get install libopencv-dev
 ```shell
 $ make all
 $ cd build
-$ sudo ./example_age_gender_recognition_app ../test.jpg
+$ sudo ./example_video_age_gender_recognition_app
 ```

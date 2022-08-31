@@ -52,12 +52,6 @@ int coordinate_is_valid(float x1, float y1, float x2, float y2)
 
 int main(int argc, char *argv[])
 {
-    if (argc < 2)
-    {
-        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]");
-        return 0;
-    }
-
     int ret = 0;
     int testseq = 0;
 
@@ -137,17 +131,19 @@ int main(int argc, char *argv[])
     int imageWidth;
     int imageHeight;
 
+    VideoCapture cap(0);
     while (1)
     {
-
         /* import image */
-        cv::Mat cv_img = cv_image_import(argv[1], &imageWidth, &imageHeight);
+        cv::Mat cv_img;
+        cap.read(cv_img);
 
         if (cv_img.empty())
         {
             return -1;
         }
-
+        imageWidth = cv_img.cols;
+        imageHeight = cv_img.rows;
         int maxOutSize = 1024 * 1024;
 
         NccPipeInput_t *pInData1 = ncc_malloc(inputsize1);
@@ -156,14 +152,12 @@ int main(int argc, char *argv[])
 
         // printf("size %d\n", malloc_usable_size(pOutData1.output));
 
-
         pOutData1.alloc_size = maxOutSize;
         cv_tensor_convert(cv_img, (char *)pInData1->input, inputDimWidth1, inputDimHeight1);
 
         ret = sync_process(&handleFD, pInData1, &pOutData1, 10000);
 
         float *pMeta = (float *)pOutData1.output;
-
 
         cv::Mat img_out = cv_img;
         int i, dis_w, dis_h, oft_x, oft_y;
@@ -178,13 +172,13 @@ int main(int argc, char *argv[])
 
             OvDetectSpec_t box;
             memcpy(&box, &pMeta[i * 7], sizeof(OvDetectSpec_t));
-        
+
             /* eliminate invalid data and low score */
             if ((coordinate_is_valid(box.x_min, box.y_min, box.x_max, box.y_max) == 0) || (box.conf < 0.5) || box.image_id < 0)
             {
                 continue;
             }
-         
+
             /* draw box */
             cv::Rect object;
             object.x = box.x_min * dis_w + oft_x;
@@ -196,7 +190,7 @@ int main(int argc, char *argv[])
             cv::rectangle(img_out, object, cv::Scalar(255, 128, 128), 2, 8, 0);
 
             cv::Mat face = cv_img(Range((int)(imageHeight * box.y_min), (int)(imageHeight * box.y_max)), Range((int)(imageWidth * box.x_min), (int)(imageWidth * box.x_max)));
-    
+
             /* allocates memory for storing images sent to the device */
             NccPipeInput_t *pInData2 = ncc_malloc(inputsize2);
             if (pInData2 == 0)
@@ -207,7 +201,7 @@ int main(int argc, char *argv[])
 
             pInData2->seqNo = testseq++;
             // while(1)
-          
+
             /* convert BGR_i --> BGR_P */
             cv_tensor_convert(face, (char *)pInData2->input, inputDimWidth2, inputDimHeight2);
 
@@ -305,19 +299,16 @@ void obj_show_img_func(char *img, int w, int h, float scale, char *name, float *
     dis_w = w;
     dis_h = h;
 
-
-
     float pMeta1 = pMeta[0];
     float pMeta2 = pMeta[32];
     float pMeta3 = pMeta[33];
-
 
     cv::Point origin;
     origin.x = object.x;
     origin.y = object.y;
     char result[128];
     memset(result, 0, sizeof(result));
-    if(pMeta3>=pMeta2)
+    if (pMeta3 >= pMeta2)
     {
         sprintf(result, "male, %d  ", (int)(pMeta1 * 100));
     }
@@ -325,7 +316,7 @@ void obj_show_img_func(char *img, int w, int h, float scale, char *name, float *
     {
         sprintf(result, "female, %d  ", (int)(pMeta1 * 100));
     }
-    
+
     cv::putText(img_out, result, origin, cv::FONT_HERSHEY_COMPLEX, 0.5, cv::Scalar(255, 255, 128), 1, 8, 0);
     // }
 }
