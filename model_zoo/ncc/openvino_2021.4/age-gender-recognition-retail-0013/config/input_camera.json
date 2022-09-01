@@ -1,5 +1,5 @@
 {
-        "blob":           "face-detection-adas-0001",
+        "blob":           "age-gender-recognition-retail-0013",
         "Function": " the input image is in YUV420 format, supports image clipping and scaling, and converts it into BGR_PLANAR_FP16 format. The tensor output is fp32 format",
 
         "nccVideoConvert": {
@@ -23,8 +23,7 @@
             "extInputs1": [0],  
             "extInputs2": [0],
             "extInputs3": [0],
-            "outputTensor1": [1,1,200,7],  
-            "outputTensor2": [0],  
+            "outputTensor": [1,1,200,7],   
             "outputType": "CV_FP16",   
             "linkOut"     :  "nccTensorConvert"     
         },
@@ -34,7 +33,7 @@
             "linkIn"     :  "nccInference",
             "inputTensor": [1,1,200,7],  
             "inputType": "CV_FP16",  
-            "outputTensor1": [1,1,200,7],   
+            "outputTensor": [1,1,200,7],   
             "outputType": "CV_FP32",   
             "linkOut"     :  "output"   
         }

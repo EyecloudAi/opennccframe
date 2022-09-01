@@ -1,8 +1,0 @@
-is_male  0
-has_bag  0
-has_backpack  0
-has_hat  0
-has_longsleeves  0
-has_longpants  0
-has_longhair  0
-has_coat_jacket  0

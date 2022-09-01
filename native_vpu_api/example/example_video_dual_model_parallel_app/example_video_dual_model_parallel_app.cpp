@@ -173,7 +173,7 @@ static void *PDSrcDevCameraThread(void* arg)
 
         memcpy(pInData->input, cv_yuv.data, size);
 
-        /* Invoke the asynchronous inference interface，overtime is 10s */
+        /* Invoke the asynchronous inference interface, overtime is 10s */
         ret = async_process(handle, pInData);
 
         /* allocates memory for storing meta data */

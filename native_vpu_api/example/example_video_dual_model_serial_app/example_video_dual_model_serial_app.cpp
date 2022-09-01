@@ -161,6 +161,7 @@ int main(int argc, char* argv[])
             printf("ncc_malloc error\n");
             return 0;
         }
+
         float min_score=0.5;
         pInData->seqNo = pSeqNo[0];
 
@@ -177,15 +178,15 @@ int main(int argc, char* argv[])
         pOutData.output = malloc(maxOutSize);
         if(pOutData.output==0)
         {
-          printf("'ncc_malloc error\n");
+          printf("ncc_malloc error\n");
           return 0;
         }
         pOutData.alloc_size = maxOutSize;
 
-        /* 4. Invoke the synchronous inference interface，overtime is 10s */
+        /* 4. Invoke the synchronous inference interface, overtime is 10s */
         ret = sync_process(&handleFD, pInData, &pOutData, 10000);
-//        printf("%s, inSeq:%d outSeq:%d outSize:%d ,T:%d MS, pid:%d\n",handleFD.pipelineName, pInData->seqNo ,\
-//                pOutData.seqNo, pOutData.size, (int)pOutData.procTimeMS, getPipelineID(&handleFD));
+        printf("%s, inSeq:%d outSeq:%d outSize:%d ,T:%d MS, pid:%d\n",handleFD.pipe_name, pInData->seqNo ,\
+                pOutData.seqNo, pOutData.actual_size, (int)pOutData.elapsed_time, ncc_pipe_id_get(&handleFD));
         if(ret!=0)
         {
             printf("syncProc err, ret=%d\n", ret);
@@ -216,7 +217,7 @@ int main(int argc, char* argv[])
         pOutData2.output = malloc(maxOutSize);
         if(pOutData2.output==0)
         {
-            printf("'ncc_malloc error\n");
+            printf("ncc_malloc error\n");
             return 0;
         }
         pOutData2.alloc_size = maxOutSize;
@@ -224,16 +225,16 @@ int main(int argc, char* argv[])
         cv::Mat img_bgr;
         cv::cvtColor(img_yuv, img_bgr, CV_YUV2BGR_I420);
 
-       /* eliminate invalid*/
+        /* Parse meta data*/
         float *detMetadata = (float*)pOutData.output;
-        float marks[20*20];
+        float marks[10*200];
         for (int i = 0; i < 200; i++)
         {
             /*  format: [image_id, label, conf, x_min, y_min, x_max, y_max] */
             OvDetectSpec_t box;
             memcpy(&box, &detMetadata[i*7], sizeof(OvDetectSpec_t));
 
-            /* 3. eliminate invalid data and low score */
+            /*  eliminate invalid data and low score */
             if(  (coordinate_is_valid(box.x_min,box.y_min,box.x_max,box.y_max) ==0 )
                     ||(box.conf < min_score)
                     || box.image_id<0
@@ -242,16 +243,16 @@ int main(int argc, char* argv[])
                 continue;
             }
 
-            /* 4. Extracting face data and convert */
+            /* Extracting face data and convert */
             cv::Mat face = img_bgr(Range((int)(imageHeight*box.y_min),(int)(imageHeight*box.y_max)),Range((int)(imageWidth*box.x_min),(int)(imageWidth*box.x_max)));
             cv_tensor_convert(face, pInData2->input, inputDimWidth, inputDimHeight);
 
-            /* 5. Invoke the synchronous inference interface，overtime is 10s */
+            /* Invoke the synchronous inference interface, overtime is 10s */
             ret = sync_process(&handleLM, pInData2, &pOutData2, 10000);
-//          printf("%s, inSeq:%d outSeq:%d outSize:%d ,T:%d MS\n",handleLandMarks.pipelineName, pInData->seqNo ,\
-//                    pOutData2.seqNo, pOutData2.size, (int)pOutData2.procTimeMS);
+            printf("%s, inSeq:%d outSeq:%d outSize:%d ,T:%d MS\n",handleFD.pipe_name, pInData->seqNo ,\
+                    pOutData2.seqNo, pOutData2.actual_size, (int)pOutData2.elapsed_time);
 
-            /* 6. save the result of face eigenvalue */
+            /* save the result of face eigenvalue */
             memcpy(&marks[10*i], pOutData2.output, 40);
         }
 
@@ -274,6 +275,7 @@ int main(int argc, char* argv[])
         pOutData.output = 0;
         pOutData2.output = 0;
         pInData = 0;
+        pInData2 = 0;
 
         /* 7. The frame buffer is re-queued into the input queue. */
         ret = v4l2_device_queue(fd, &src);

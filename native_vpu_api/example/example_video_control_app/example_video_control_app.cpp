@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
         printf("ncc_dev_init success num %d\n",ret);
     }
 
-    /* 4. start device */
+    /* 3. start device */
     ret = ncc_dev_start(0);
     if(ret>0)
     {
@@ -67,15 +67,15 @@ int main(int argc, char* argv[])
 
     int imageWidth, imageHeight;
 
-    /* 5. open UVC camera*/
+    /* 4. open UVC camera*/
     int fd;
     fd = v4l2_device_open(argv[1]);
 
-    /* 6. get usb port */
+    /* 5. get usb port */
     NccUsbPortSpec_t port;
     v4l2_device_port_get(fd, &port);
 
-    /* 7. get usb port */
+    /* 6. get sn from port */
     char str[32];
     ncc_dev_serial_number_get(&port, str, sizeof(str));
 
@@ -201,7 +201,7 @@ void v4l2_device_query(int fd, int *imageWidth, int *imageHeight)
     struct v4l2_fmtdesc fmtdesc;
     fmtdesc.index = 0;
     fmtdesc.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-    printf("Supprotformat:\n");
+    printf("Support format:\n");
     while(ioctl(fd, VIDIOC_ENUM_FMT, &fmtdesc)!=-1)
     {
         printf("\t%d.%c%c%c%c\t%s\n",fmtdesc.index+1,fmtdesc.pixelformat & 0xFF,\
