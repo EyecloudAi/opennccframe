@@ -24,5 +24,5 @@ $ sudo apt-get install libopencv-dev
 ```shell
 $ make all
 $ cd build
-$ sudo ./example_video_age_gender_recognition_app
+$ sudo ./example_video_age_gender_recognition_app  0 (node index, means /dev/video0 )
 ```

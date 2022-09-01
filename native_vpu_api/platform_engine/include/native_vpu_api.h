@@ -2,7 +2,7 @@
  * @file   native_vpu_api.h
  * @author Zed
  * @email  zhangdi@eyecloud.tech
- * @date   2021.11.15
+ * @date   2022.09.01
  * @brief  Configure inference engine and pipelines of NCC camera
  * @copyright Copyright (c) 2018-2022 eyecloud.ai
  */
@@ -11,6 +11,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/**
+  * @enum log level
+  * @brief the log level of the sdk
+  */
+typedef enum
+{
+    LOG_INFO,
+    LOG_DEBUG,
+    LOG_ERROR,
+    LOG_SHOW
+}LOG_LEVEL;
 
 /**
  * @define MAX_DEV_NUM
@@ -405,6 +417,12 @@ int ncc_input_tensor_descriptor_get(NccPipeHandle_t *handle, NccTensorSpec_t *in
  *   @retval -1 Failure
  */
 int ncc_output_tensor_descriptor_get(NccPipeHandle_t *handle, NccTensorSpec_t *output_tensor);
+
+/**
+ * @brief set level of log print
+ * @param[in] level enum LOG_LEVEL
+ */
+void set_log_level(LOG_LEVEL level);
 
 #ifdef __cplusplus
 }
