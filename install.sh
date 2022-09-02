@@ -50,11 +50,11 @@ if [ $platform = "ubuntu" ] || [ $platform = "rk3568" ] || [ $platform = "raspi4
     cd $resource_path/$platform/
     ./install.sh $install_path
 elif [ $platform = "auto"  ]; then
-    if [[ `uname -a` =~ "x86_64" ]]; then
+    if [[ `uname -m` =~ "x86_64" ]]; then
 	install_arch=ubuntu
-    elif [[ `uname -a` =~ "ARM-V8" ]]; then
+    elif [[ `uname -m` =~ "aarch64" ]]; then
 	install_arch=rk3568
-    elif [[ `uname -a` =~ "ARMv7l"] || [`uname -a` =~ "armv7l" ]]; then
+    elif [[ `uname -a` =~ "armv7l" ]]; then
 	install_arch=raspi4
     else
 	install_arch=unknown
