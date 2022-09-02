@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 {
     if(argc <2)
     {
-        printf("Please input sudo ./example_video_control_app [<node(/dev/video*)>]");
+        printf("Please input sudo ./example_video_dual_model_serial_app [<node(/dev/video*)>]\n");
         return 0;
     }
 

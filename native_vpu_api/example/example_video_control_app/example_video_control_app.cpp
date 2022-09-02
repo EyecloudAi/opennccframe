@@ -73,6 +73,7 @@ int main(int argc, char* argv[])
 
     /* 5. get usb port */
     NccUsbPortSpec_t port;
+    memset(&port, 0, sizeof(NccUsbPortSpec_t));
     v4l2_device_port_get(fd, &port);
 
     /* 6. get sn from port */
@@ -84,6 +85,7 @@ int main(int argc, char* argv[])
 
     /* 8. get device information */
     char version[100];
+    memset(version, 0, sizeof(version));
     device_ctrl_get_fw_version(dev_id, version, sizeof(version));
     printf("Firmware version: %s\n\n",version);
 

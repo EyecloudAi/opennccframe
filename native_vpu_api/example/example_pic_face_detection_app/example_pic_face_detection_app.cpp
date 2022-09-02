@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 {
     if(argc <2)
     {
-        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]");
+        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]\n");
         return 0;
     }
 
