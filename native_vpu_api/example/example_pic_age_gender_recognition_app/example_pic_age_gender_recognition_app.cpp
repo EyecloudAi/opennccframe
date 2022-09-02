@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
     int ret = 0;
     if (argc < 2)
     {
-        printf("Please input sudo ./example_video_age_gender_recognition_app [<node index(/dev/video*)>]\n");
+        printf("Please input sudo ./example_video_age_gender_recognition_app [<image(*.jpeg)>]\n");
         return 0;
     }
 
@@ -129,19 +129,11 @@ int main(int argc, char *argv[])
     int imageHeight = 0;
     int seq_cnt     = 0;
 
-    int node_index = atoi(argv[1]);
-
-    printf("Try to open /dev/video%d\n",node_index);
-
-    VideoCapture cap(node_index);
-
     while (1)
     {
         /* import image */
-        cv::Mat cv_img;
-        cap.read(cv_img);
-
-        if (cv_img.empty())
+        cv::Mat cv_img = cv_image_import(argv[1], &imageWidth, &imageHeight);
+        if(cv_img.empty())
         {
             return -1;
         }
@@ -217,7 +209,22 @@ int main(int argc, char *argv[])
                 continue;
             }
 
-            cv::Mat face = cv_img(Range((int)(imageHeight * box.y_min), (int)(imageHeight * box.y_max)), Range((int)(imageWidth * box.x_min), (int)(imageWidth * box.x_max)));
+            box.x_max += 0.007;
+            box.y_max += 0.014;
+            box.x_min -= 0.007;
+            box.y_min -= 0.014;
+
+            if(box.x_max > 0.999)
+               box.x_max = 0.999;
+            else if(box.y_max > 0.999)
+               box.y_max = 0.999;
+            else if(box.x_min < 0.001)
+               box.x_min = 0.001;
+            else if(box.y_min < 0.001)
+               box.y_min = 0.001;
+
+            cv::Mat face = cv_img(Range((int)(imageHeight * box.y_min), (int)(imageHeight * box.y_max)),
+                    Range((int)(imageWidth * box.x_min), (int)(imageWidth * box.x_max)));
 
             /* convert BGR_i --> BGR_P */
             cv_tensor_convert(face, (char *)pInData2->input, inputDimWidth2, inputDimHeight2);
@@ -308,13 +315,27 @@ void obj_show_attribute(char *img, int w, int h, float scale, char *name, float 
         memcpy(&box, &pMeta[i*7], sizeof(OvDetectSpec_t));
 
         /* eliminate invalid data and low score */
-        if(  (coordinate_is_valid(box.x_min,box.y_min,box.x_max,box.y_max) == 0)
+        if(  (coordinate_is_valid(box.x_min,box.y_min,box.x_max,box.y_max ) == 0)
                 ||(box.conf < min_score)
                 || box.image_id<0
                 )
         {
             continue;
         }
+
+        box.x_max += 0.007;
+        box.y_max += 0.014;
+        box.x_min -= 0.007;
+        box.y_min -= 0.014;
+
+        if(box.x_max > 0.999)
+           box.x_max = 0.999;
+        else if(box.y_max > 0.999)
+           box.y_max = 0.999;
+        else if(box.x_min < 0.001)
+           box.x_min = 0.001;
+        else if(box.y_min < 0.001)
+           box.y_min = 0.001;
 
         /* draw box */
         cv::Rect object;

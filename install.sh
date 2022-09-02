@@ -54,7 +54,7 @@ elif [ $platform = "auto"  ]; then
 	install_arch=ubuntu
     elif [[ `uname -m` =~ "aarch64" ]]; then
 	install_arch=rk3568
-    elif [[ `uname -a` =~ "armv7l" ]]; then
+    elif [[ `uname -m` =~ "armv7l" ]]; then
 	install_arch=raspi4
     else
 	install_arch=unknown

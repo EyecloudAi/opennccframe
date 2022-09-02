@@ -24,5 +24,5 @@ $ sudo apt-get install libopencv-dev
 ```shell
 $ make all
 $ cd build
-$ sudo ./example_pic_face_detection_app ../test.jpg
+$ sudo ./example_pic_face_detection_app ../../pic_lib/face.jpg
 ```
