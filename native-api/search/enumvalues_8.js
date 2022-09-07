@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['yuv420p',['YUV420p',['../native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8a8a1a60639c767912a6a02bd9efdd0073',1,'native_vpu_api.h']]],
-  ['yuv422p',['YUV422p',['../native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8a6c8763821324308c589a942d59b608b8',1,'native_vpu_api.h']]]
+  ['video_5fout_5fcontinuous',['VIDEO_OUT_CONTINUOUS',['../camera_ctrl_8h.html#a4e24e3023018486103473d3b06632defa2f81e1c2e0bbe360a5e52758834402a7',1,'cameraCtrl.h']]],
+  ['video_5fout_5fdisable',['VIDEO_OUT_DISABLE',['../camera_ctrl_8h.html#a4e24e3023018486103473d3b06632defa08b91e77ceb0e483f815846e21fe611c',1,'cameraCtrl.h']]],
+  ['video_5fout_5fsingle',['VIDEO_OUT_SINGLE',['../camera_ctrl_8h.html#a4e24e3023018486103473d3b06632defacfe8abb0fd571a399f366efdbb26f9af',1,'cameraCtrl.h']]]
 ];

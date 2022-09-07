@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['metatype',['METATYPE',['../native__vpu__api_8h.html#a673fbe7956d763fafe9937e9d704d32f',1,'native_vpu_api.h']]]
+  ['log_5flevel',['LOG_LEVEL',['../native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583',1,'native_vpu_api.h']]]
 ];

@@ -5,13 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>openncc frame: /home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/includes.h File Reference</title>
+<title>openncc frame: opennccframe/native_vpu_api/platform_engine/include/includes.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('includes_8h.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5a863dce7d61124d41bdb8661f479286.html">openncc_frame</a></li><li class="navelem"><a class="el" href="dir_46035fa3993040d7d1832145e3c51c9c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_6b0b95710cb3a8326ac9829d33e0116f.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_44d5d3861071bd4aae973fa5a38b5ae4.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a>  </div>
@@ -89,6 +115,11 @@ $(function() {
 <code>#include &lt;sys/stat.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for includes.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="includes_8h__incl.png" border="0" usemap="#opennccframe_2native__vpu__api_2platform__engine_2include_2includes_8h" alt=""/></div>
+</div>
 </div>
 <p><a href="includes_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -122,98 +153,14 @@ Macros</h2></td></tr>
 <tr class="separator:af07038cd36f097c7ad782e408e1aa1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="aec93e83855ac17c3c25c55c37ca186dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec93e83855ac17c3c25c55c37ca186dd">&#9670;&nbsp;</a></span>BYTE</h2>
+<a id="af07038cd36f097c7ad782e408e1aa1b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07038cd36f097c7ad782e408e1aa1b8">&#9670;&nbsp;</a></span>_PACKED_</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BYTE&#160;&#160;&#160;uint8_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a135974a179e43568a0323862c6f72f17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a135974a179e43568a0323862c6f72f17">&#9670;&nbsp;</a></span>INT8U</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INT8U&#160;&#160;&#160;uint8_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a997fecd78ae9ea84ef41243038f2ca46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a997fecd78ae9ea84ef41243038f2ca46">&#9670;&nbsp;</a></span>INT16U</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INT16U&#160;&#160;&#160;uint16_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abc743ce126c3ada10501baffb3ca2295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc743ce126c3ada10501baffb3ca2295">&#9670;&nbsp;</a></span>INT16</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INT16&#160;&#160;&#160;int16_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a25ff3c0f78edb856f90b536f50e7ca18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25ff3c0f78edb856f90b536f50e7ca18">&#9670;&nbsp;</a></span>INT32U</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INT32U&#160;&#160;&#160;uint32_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aac92c5ec332dafe0abb24688dad1b795"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac92c5ec332dafe0abb24688dad1b795">&#9670;&nbsp;</a></span>INT32</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INT32&#160;&#160;&#160;int32_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a45c20c14d3d8790a22153d08ab2eb2ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45c20c14d3d8790a22153d08ab2eb2ff">&#9670;&nbsp;</a></span>UINT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UINT&#160;&#160;&#160;uint32_t</td>
+          <td class="memname">#define _PACKED_&#160;&#160;&#160;__attribute__((packed))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -234,14 +181,14 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="aa90cac659d18e8ef6294c7ae337f6b58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa90cac659d18e8ef6294c7ae337f6b58">&#9670;&nbsp;</a></span>SUCCESS</h2>
+<a id="aec93e83855ac17c3c25c55c37ca186dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec93e83855ac17c3c25c55c37ca186dd">&#9670;&nbsp;</a></span>BYTE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SUCCESS&#160;&#160;&#160;0</td>
+          <td class="memname">#define BYTE&#160;&#160;&#160;uint8_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -276,6 +223,90 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="abc743ce126c3ada10501baffb3ca2295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc743ce126c3ada10501baffb3ca2295">&#9670;&nbsp;</a></span>INT16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT16&#160;&#160;&#160;int16_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a997fecd78ae9ea84ef41243038f2ca46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997fecd78ae9ea84ef41243038f2ca46">&#9670;&nbsp;</a></span>INT16U</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT16U&#160;&#160;&#160;uint16_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac92c5ec332dafe0abb24688dad1b795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac92c5ec332dafe0abb24688dad1b795">&#9670;&nbsp;</a></span>INT32</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT32&#160;&#160;&#160;int32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a25ff3c0f78edb856f90b536f50e7ca18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25ff3c0f78edb856f90b536f50e7ca18">&#9670;&nbsp;</a></span>INT32U</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT32U&#160;&#160;&#160;uint32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a135974a179e43568a0323862c6f72f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135974a179e43568a0323862c6f72f17">&#9670;&nbsp;</a></span>INT8U</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INT8U&#160;&#160;&#160;uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa90cac659d18e8ef6294c7ae337f6b58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa90cac659d18e8ef6294c7ae337f6b58">&#9670;&nbsp;</a></span>SUCCESS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SUCCESS&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa8cecfc5c5c054d2875c03e77b7be15d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8cecfc5c5c054d2875c03e77b7be15d">&#9670;&nbsp;</a></span>TRUE</h2>
 
@@ -290,14 +321,14 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="af07038cd36f097c7ad782e408e1aa1b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af07038cd36f097c7ad782e408e1aa1b8">&#9670;&nbsp;</a></span>_PACKED_</h2>
+<a id="a45c20c14d3d8790a22153d08ab2eb2ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c20c14d3d8790a22153d08ab2eb2ff">&#9670;&nbsp;</a></span>UINT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _PACKED_&#160;&#160;&#160;__attribute__((packed))</td>
+          <td class="memname">#define UINT&#160;&#160;&#160;uint32_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -305,11 +336,15 @@ Macros</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_87da9a754c98629b142350329ff44e7d.html">opennccframe</a></li><li class="navelem"><a class="el" href="dir_e7c49058f94604667ed58eb07a1beb7c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_5eb33dbb5c128bfaba79d0efdd77aeda.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_67e476916a250b563c3f3c210a39e976.html">include</a></li><li class="navelem"><a class="el" href="includes_8h.html">includes.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -14,7 +14,7 @@ var searchData=
   ['camera_5fctrl_5fme_5fset_5fexp_5fgain',['camera_ctrl_me_set_exp_gain',['../camera_ctrl_8h.html#a432aa0d80f4a8605134fc33a5e9ce1f7',1,'cameraCtrl.h']]],
   ['camera_5fctrl_5fset_5fawb_5fmode',['camera_ctrl_set_awb_mode',['../camera_ctrl_8h.html#ada9af458c287c98abf4110d822c18405',1,'cameraCtrl.h']]],
   ['cameractrl_2eh',['cameraCtrl.h',['../camera_ctrl_8h.html',1,'']]],
-  ['camfps',['camFps',['../struct_sensor_modes_para__t.html#a6e076a711bc5efa70bf50fc9366d2784',1,'SensorModesPara_t']]],
-  ['camheight',['camHeight',['../struct_sensor_modes_para__t.html#a421eeb4f9312ab29f8b1116ecfa46d9e',1,'SensorModesPara_t']]],
-  ['camwidth',['camWidth',['../struct_sensor_modes_para__t.html#abc105689507d02172635cb041c71672f',1,'SensorModesPara_t']]]
+  ['camfps',['camFps',['../struct_sensor_modes_para__t.html#ae050063a087c1ac834fb402617fbd720',1,'SensorModesPara_t']]],
+  ['camheight',['camHeight',['../struct_sensor_modes_para__t.html#af342996da6be43b7778b428ed1dc5050',1,'SensorModesPara_t']]],
+  ['camwidth',['camWidth',['../struct_sensor_modes_para__t.html#a2a3c69d1284f87da26d3375c5eb9d629',1,'SensorModesPara_t']]]
 ];

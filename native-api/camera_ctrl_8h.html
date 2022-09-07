@@ -5,13 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>openncc frame: /home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/cameraCtrl.h File Reference</title>
+<title>openncc frame: opennccframe/native_vpu_api/platform_engine/include/cameraCtrl.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('camera_ctrl_8h.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5a863dce7d61124d41bdb8661f479286.html">openncc_frame</a></li><li class="navelem"><a class="el" href="dir_46035fa3993040d7d1832145e3c51c9c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_6b0b95710cb3a8326ac9829d33e0116f.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_44d5d3861071bd4aae973fa5a38b5ae4.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -223,187 +249,6 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="abe4943b8739d684f139e638ca419e081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe4943b8739d684f139e638ca419e081">&#9670;&nbsp;</a></span>device_ctrl_id_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int device_ctrl_id_get </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>serial_num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get index of device handle according to serial number. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*serial_num</td><td>serial number of device </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">&gt;0</td><td>index of device controller corresponding to serial number<br />
- </td></tr>
-    <tr><td class="paramname">-1</td><td>No corresponding serial number found </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a42af4a50127da34f1fc3fc8e54c20272"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42af4a50127da34f1fc3fc8e54c20272">&#9670;&nbsp;</a></span>device_ctrl_get_sensor_mode_list()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int device_ctrl_get_sensor_mode_list </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dev_index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_sensor_modes_list__t.html">SensorModesList_t</a> *&#160;</td>
-          <td class="paramname"><em>list</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get mode list which camera supported. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index,the</td><td>active ncc device scaned by ncc sdk,could use the device's index to config camera </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*list,point</td><td>to a <a class="el" href="struct_sensor_modes_list__t.html" title="List of camera control parameters. ">SensorModesList_t</a> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section user"><dt>Before call this function,you need call ncc_get_dev_number(void) to scan the ncc devices</dt><dd><div class="fragment"><div class="line"><span class="keywordtype">int</span> devNum = ncc_get_dev_number();</div><div class="line"><span class="keywordflow">if</span>(devNum&lt;=0)</div><div class="line">    <span class="keywordflow">return</span> -1;</div><div class="line">..<span class="keywordflow">if</span> your ncc device don<span class="stringliteral">&#39;t have flash on it...</span></div><div class="line"><span class="stringliteral">ret = nccDevInit(&quot;/usr/local/lib/openncc/OpenNcc.mvcmd&quot;, devNum);</span></div><div class="line"><span class="stringliteral">....</span></div><div class="line"><span class="stringliteral">SensorModesList_t list;</span></div><div class="line"><span class="stringliteral">int num = device_ctrl_get_sensor_mode_list(0, &amp;list);</span></div></div><!-- fragment --> </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> ncc_get_dev_number(void)<br />
-<a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> enum <a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b" title="The list of the usb error code. ">usb_error</a> </dd></dl>
-
-</div>
-</div>
-<a id="a72ac9f8868e9b4365e6af5277331e6fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72ac9f8868e9b4365e6af5277331e6fb">&#9670;&nbsp;</a></span>device_ctrl_select_sensor_mode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int device_ctrl_select_sensor_mode </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dev_index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>mode_index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Select sensor and resolution. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index</td><td>[Range from 0 to SensorModesConfig.num] </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode_index,selecte</td><td>the <a class="el" href="struct_sensor_modes_para__t.html" title="List of camera control parameters. ">SensorModesPara_t</a> index get from camera </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section user"><dt>After you selected the mode,the camera would work as the SensorModesPara listed, </dt><dd>could call it after device_ctrl_get_sensor_mode_list(...) </dd></dl>
-<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>Currently only support 1080P </dd></dl>
-
-</div>
-</div>
-<a id="a7830772472a79c7b9989100d5267dcdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7830772472a79c7b9989100d5267dcdc">&#9670;&nbsp;</a></span>device_ctrl_get_fw_version()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int device_ctrl_get_fw_version </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dev_index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>fw_version</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get firmware version. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index,the</td><td>active ncc device scaned by ncc sdk,could use the device's index to config camera </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*fw_version,get</td><td>the firmware version from ncc camera or device </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section user"><dt>null</dt><dd><div class="fragment"><div class="line"><span class="keywordtype">int</span> devNum = ncc_get_dev_number();</div><div class="line"><span class="keywordflow">if</span>(devNum&lt;=0)</div><div class="line">    <span class="keywordflow">return</span> -1;</div><div class="line">..<span class="keywordflow">if</span> your ncc device don<span class="stringliteral">&#39;t have flash on it,need download firmware to the device...</span></div><div class="line"><span class="stringliteral">ret = nccDevInit(&quot;/usr/local/lib/openncc/OpenNcc.mvcmd&quot;, devNum);</span></div><div class="line"><span class="stringliteral">....</span></div><div class="line"><span class="stringliteral">char version[100];</span></div><div class="line"><span class="stringliteral">ret = device_ctrl_get_fw_version(0, version);</span></div></div><!-- fragment --> </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> ncc_get_dev_number(void) <br />
-<a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> nccDevInit(...) </dd></dl>
-
-</div>
-</div>
 <a id="aba7a0cd427df04f5337ca92b7d6fcefd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba7a0cd427df04f5337ca92b7d6fcefd">&#9670;&nbsp;</a></span>camera_ctrl_ae_enabled()</h2>
 
@@ -475,7 +320,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dev_index,if</td><td>detected more than two cameras ,need selete one [Range from 0 to SensorModesConfig.num] </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">exp_us,[unit</td><td>us, Max value: 1/fps*1000*1000] </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iso_val,exposure</td><td>gain.The range of the value is get from <a class="el" href="struct_sensor_modes_para__t.html#a17e898cd86e8683bdda9b715e4e67aa4" title="&lt; maximum exposure time, unit us ">SensorModesPara_t.minGain</a> and <a class="el" href="struct_sensor_modes_para__t.html#a6c4fcf5276e6216e11d6ed3df88d455b" title="&lt; min exposure gain value,100 means x1 ">SensorModesPara_t.maxGain</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iso_val,exposure</td><td>gain.The range of the value is get from <a class="el" href="struct_sensor_modes_para__t.html#a8319b421d9035c497a053eabc231d236" title="&lt; maximum exposure time, unit us ">SensorModesPara_t.minGain</a> and <a class="el" href="struct_sensor_modes_para__t.html#aa5174802035d4a2bd30ef085ff926ef2" title="&lt; min exposure gain value,100 means x1 ">SensorModesPara_t.maxGain</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -534,12 +379,197 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7830772472a79c7b9989100d5267dcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7830772472a79c7b9989100d5267dcdc">&#9670;&nbsp;</a></span>device_ctrl_get_fw_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int device_ctrl_get_fw_version </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dev_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>fw_version</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get firmware version. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index,the</td><td>active ncc device scaned by ncc sdk,could use the device's index to config camera </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*fw_version,get</td><td>the firmware version from ncc camera or device </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>null</dt><dd><div class="fragment"><div class="line"><span class="keywordtype">int</span> devNum = ncc_get_dev_number();</div><div class="line"><span class="keywordflow">if</span>(devNum&lt;=0)</div><div class="line">    <span class="keywordflow">return</span> -1;</div><div class="line">..<span class="keywordflow">if</span> your ncc device don<span class="stringliteral">&#39;t have flash on it,need download firmware to the device...</span></div><div class="line"><span class="stringliteral">ret = nccDevInit(&quot;/usr/local/lib/openncc/OpenNcc.mvcmd&quot;, devNum);</span></div><div class="line"><span class="stringliteral">....</span></div><div class="line"><span class="stringliteral">char version[100];</span></div><div class="line"><span class="stringliteral">ret = device_ctrl_get_fw_version(0, version);</span></div></div><!-- fragment --> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> ncc_get_dev_number(void) <br />
+<a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> nccDevInit(...) </dd></dl>
+
+</div>
+</div>
+<a id="a42af4a50127da34f1fc3fc8e54c20272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42af4a50127da34f1fc3fc8e54c20272">&#9670;&nbsp;</a></span>device_ctrl_get_sensor_mode_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int device_ctrl_get_sensor_mode_list </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dev_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_sensor_modes_list__t.html">SensorModesList_t</a> *&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get mode list which camera supported. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index,the</td><td>active ncc device scaned by ncc sdk,could use the device's index to config camera </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*list,point</td><td>to a <a class="el" href="struct_sensor_modes_list__t.html" title="List of camera control parameters. ">SensorModesList_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>Before call this function,you need call ncc_get_dev_number(void) to scan the ncc devices</dt><dd><div class="fragment"><div class="line"><span class="keywordtype">int</span> devNum = ncc_get_dev_number();</div><div class="line"><span class="keywordflow">if</span>(devNum&lt;=0)</div><div class="line">    <span class="keywordflow">return</span> -1;</div><div class="line">..<span class="keywordflow">if</span> your ncc device don<span class="stringliteral">&#39;t have flash on it...</span></div><div class="line"><span class="stringliteral">ret = nccDevInit(&quot;/usr/local/lib/openncc/OpenNcc.mvcmd&quot;, devNum);</span></div><div class="line"><span class="stringliteral">....</span></div><div class="line"><span class="stringliteral">SensorModesList_t list;</span></div><div class="line"><span class="stringliteral">int num = device_ctrl_get_sensor_mode_list(0, &amp;list);</span></div></div><!-- fragment --> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> ncc_get_dev_number(void)<br />
+<a class="el" href="native__vpu__api_8h.html" title="Configure inference engine and pipelines of NCC camera. ">native_vpu_api.h</a> enum <a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b" title="The list of the usb error code. ">usb_error</a> </dd></dl>
+
+</div>
+</div>
+<a id="abe4943b8739d684f139e638ca419e081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4943b8739d684f139e638ca419e081">&#9670;&nbsp;</a></span>device_ctrl_id_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int device_ctrl_id_get </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>serial_num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get index of device handle according to serial number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*serial_num</td><td>serial number of device </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">&gt;0</td><td>index of device controller corresponding to serial number<br />
+ </td></tr>
+    <tr><td class="paramname">-1</td><td>No corresponding serial number found </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a72ac9f8868e9b4365e6af5277331e6fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ac9f8868e9b4365e6af5277331e6fb">&#9670;&nbsp;</a></span>device_ctrl_select_sensor_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int device_ctrl_select_sensor_mode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dev_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mode_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Select sensor and resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_index</td><td>[Range from 0 to SensorModesConfig.num] </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode_index,selecte</td><td>the <a class="el" href="struct_sensor_modes_para__t.html" title="List of camera control parameters. ">SensorModesPara_t</a> index get from camera </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>success, others follow enum usb_error </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section user"><dt>After you selected the mode,the camera would work as the SensorModesPara listed, </dt><dd>could call it after device_ctrl_get_sensor_mode_list(...) </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>Currently only support 1080P </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_87da9a754c98629b142350329ff44e7d.html">opennccframe</a></li><li class="navelem"><a class="el" href="dir_e7c49058f94604667ed58eb07a1beb7c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_5eb33dbb5c128bfaba79d0efdd77aeda.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_67e476916a250b563c3f3c210a39e976.html">include</a></li><li class="navelem"><a class="el" href="camera_ctrl_8h.html">cameraCtrl.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

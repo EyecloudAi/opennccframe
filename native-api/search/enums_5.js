@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['video_5fctrl_5fout_5fmdoe',['VIDEO_CTRL_OUT_MDOE',['../camera_ctrl_8h.html#a4e24e3023018486103473d3b06632def',1,'cameraCtrl.h']]]
+  ['usb_5ferror',['usb_error',['../native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b',1,'native_vpu_api.h']]]
 ];

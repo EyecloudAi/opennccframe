@@ -5,13 +5,23 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>openncc frame: /home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/native_vpu_api.h File Reference</title>
+<title>openncc frame: opennccframe/native_vpu_api/platform_engine/include/native_vpu_api.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('native__vpu__api_8h.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,11 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_5a863dce7d61124d41bdb8661f479286.html">openncc_frame</a></li><li class="navelem"><a class="el" href="dir_46035fa3993040d7d1832145e3c51c9c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_6b0b95710cb3a8326ac9829d33e0116f.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_44d5d3861071bd4aae973fa5a38b5ae4.html">include</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
@@ -77,6 +103,11 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for native_vpu_api.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="native__vpu__api_8h__incl.png" border="0" usemap="#opennccframe_2native__vpu__api_2platform__engine_2include_2native__vpu__api_8h" alt=""/></div>
+</div>
 </div>
 <p><a href="native__vpu__api_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,6 +142,12 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:aa5a9053636a30269210c54e734e0d583"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583">LOG_LEVEL</a> { <a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583a6e98ff471e3ce6c4ef2d75c37ee51837">LOG_INFO</a>, 
+<a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583ab9f002c6ffbfd511da8090213227454e">LOG_DEBUG</a>, 
+<a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583a230506cce5c68c3bac5a821c42ed3473">LOG_ERROR</a>, 
+<a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583a84b90241077b63cd8c67e7a375f5044e">LOG_SHOW</a>
+ }</td></tr>
+<tr class="separator:aa5a9053636a30269210c54e734e0d583"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a465873fe7681cf20279463acef99c12b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b">usb_error</a> { <br />
 &#160;&#160;<a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12ba68ee7000f7f5dbb4f98dfae7a80a4c0b">USB_SUCCESS</a> = 0, 
 <a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12ba960879789b1075bd9b47b979414d06aa">USB_ERROR_IO</a> = -1, 
@@ -190,11 +227,31 @@ When the device inference is completed, the callback is triggered.  <a href="#a2
 <tr class="memitem:a4245d104471b2da36abc19468b1d9ccd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a4245d104471b2da36abc19468b1d9ccd">ncc_dev_serial_number_get</a> (<a class="el" href="struct_ncc_usb_port_spec__t.html">NccUsbPortSpec_t</a> *port, char *string, int size)</td></tr>
 <tr class="memdesc:a4245d104471b2da36abc19468b1d9ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get serial number of device according to usb port.  <a href="#a4245d104471b2da36abc19468b1d9ccd">More...</a><br /></td></tr>
 <tr class="separator:a4245d104471b2da36abc19468b1d9ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59c755a40572ce3be0d24ff2f480aee4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a59c755a40572ce3be0d24ff2f480aee4">ncc_pipe_create</a> (<a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *handle, <a class="el" href="native__vpu__api_8h.html#aa778cf399cedd1546dfff2e734ba49f4">PROCESS_MODE</a> mode)</td></tr>
+<tr class="memdesc:a59c755a40572ce3be0d24ff2f480aee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the inference engine, read the parameters from the JSON file and <br />
+.  <a href="#a59c755a40572ce3be0d24ff2f480aee4">More...</a><br /></td></tr>
+<tr class="separator:a59c755a40572ce3be0d24ff2f480aee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0b852128dbdbb54ad4e3d291d6eb29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a2a0b852128dbdbb54ad4e3d291d6eb29">ncc_dev_start</a> (int dev_id)</td></tr>
+<tr class="memdesc:a2a0b852128dbdbb54ad4e3d291d6eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start all the pipelines on the device with specified serial number.  <a href="#a2a0b852128dbdbb54ad4e3d291d6eb29">More...</a><br /></td></tr>
+<tr class="separator:a2a0b852128dbdbb54ad4e3d291d6eb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada492952f8dbaf720b09d195e04000b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#ada492952f8dbaf720b09d195e04000b9">ncc_pipe_id_get</a> (<a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *handle)</td></tr>
+<tr class="memdesc:ada492952f8dbaf720b09d195e04000b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pipe index of this <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> on the device.<br />
+Generally speaking this pipe index is automatically assigned by SDK.  <a href="#ada492952f8dbaf720b09d195e04000b9">More...</a><br /></td></tr>
+<tr class="separator:ada492952f8dbaf720b09d195e04000b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778addb3b33b06195f59c534fb80781a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a778addb3b33b06195f59c534fb80781a">ncc_input_tensor_descriptor_get</a> (<a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *handle, <a class="el" href="struct_ncc_tensor_spec__t.html">NccTensorSpec_t</a> *input_tensor)</td></tr>
+<tr class="memdesc:a778addb3b33b06195f59c534fb80781a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the input tensor information of the current pipeline.  <a href="#a778addb3b33b06195f59c534fb80781a">More...</a><br /></td></tr>
+<tr class="separator:a778addb3b33b06195f59c534fb80781a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6020d4eaab0ff40944ea43f24ebb4501"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a6020d4eaab0ff40944ea43f24ebb4501">ncc_output_tensor_descriptor_get</a> (<a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *handle, <a class="el" href="struct_ncc_tensor_spec__t.html">NccTensorSpec_t</a> *output_tensor)</td></tr>
+<tr class="memdesc:a6020d4eaab0ff40944ea43f24ebb4501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output tensor information of the current pipeline.  <a href="#a6020d4eaab0ff40944ea43f24ebb4501">More...</a><br /></td></tr>
+<tr class="separator:a6020d4eaab0ff40944ea43f24ebb4501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a60358e3c4b0bc13aefac93fa07f5f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="native__vpu__api_8h.html#a9a60358e3c4b0bc13aefac93fa07f5f5">set_log_level</a> (<a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583">LOG_LEVEL</a> level)</td></tr>
+<tr class="memdesc:a9a60358e3c4b0bc13aefac93fa07f5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">set level of log print  <a href="#a9a60358e3c4b0bc13aefac93fa07f5f5">More...</a><br /></td></tr>
+<tr class="separator:a9a60358e3c4b0bc13aefac93fa07f5f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configure inference engine and pipelines of NCC camera. </p>
 <dl class="section author"><dt>Author</dt><dd>Zed  <a href="#" onclick="location.href='mai'+'lto:'+'zha'+'ng'+'di@'+'ey'+'ecl'+'ou'+'d.t'+'ec'+'h'; return false;">zhang<span style="display: none;">.nosp@m.</span>di@e<span style="display: none;">.nosp@m.</span>yeclo<span style="display: none;">.nosp@m.</span>ud.t<span style="display: none;">.nosp@m.</span>ech</a> </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2021.11.15 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2022.09.01 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2018-2022 eyecloud.ai </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a9a1340a793f9b2a062707a22e2a63a1f"></a>
@@ -232,51 +289,6 @@ When the device inference is completed, the callback is triggered.  <a href="#a2
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a465873fe7681cf20279463acef99c12b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a465873fe7681cf20279463acef99c12b">&#9670;&nbsp;</a></span>usb_error</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b">usb_error</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The list of the usb error code. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba68ee7000f7f5dbb4f98dfae7a80a4c0b"></a>USB_SUCCESS&#160;</td><td class="fielddoc"><p>&lt; Success (no error) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba960879789b1075bd9b47b979414d06aa"></a>USB_ERROR_IO&#160;</td><td class="fielddoc"><p>&lt; Input/output error </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba1ad3e7a09bb8449a427c858578cd5dfe"></a>USB_ERROR_INVALID_PARAM&#160;</td><td class="fielddoc"><p>&lt; Invalid parameter Access denied (insufficient permissions) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa8316f49a013fe42c875b513f5b22f2c"></a>USB_ERROR_ACCESS&#160;</td><td class="fielddoc"><p>No such device (it may have been disconnected) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba9c14d663c2bcafa5cd7b3d6af9f0d495"></a>USB_ERROR_NO_DEVICE&#160;</td><td class="fielddoc"><p>Entity not found </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba6d2b8352d62751116ce7624b9586680f"></a>USB_ERROR_NOT_FOUND&#160;</td><td class="fielddoc"><p>Resource busy </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba507e7f6e7fa2f1398d6e266c8ee57b12"></a>USB_ERROR_BUSY&#160;</td><td class="fielddoc"><p>Operation timed out </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba85482063a7560c05eb83929f49605b11"></a>USB_ERROR_TIMEOUT&#160;</td><td class="fielddoc"><p>Overflow </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba440bda375171acc09bca52acec2a3d12"></a>USB_ERROR_OVERFLOW&#160;</td><td class="fielddoc"><p>Pipe error </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa09c38dc46f0e2ad78e798b2663325c8"></a>USB_ERROR_PIPE&#160;</td><td class="fielddoc"><p>System call interrupted (perhaps due to signal) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa10e7fe7b5c6b315400c65a0effe63bb"></a>USB_ERROR_INTERRUPTED&#160;</td><td class="fielddoc"><p>Insufficient memory </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12bac84412014e67c2f8ee3a08fb26447422"></a>USB_ERROR_NO_MEM&#160;</td><td class="fielddoc"><p>Operation not supported or unimplemented on this platform </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baea575ecc0c1db2c6f13e1f4cb69f7218"></a>USB_ERROR_NOT_SUPPORTED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba5498ddefadc3e75907fae6ed15e54dfc"></a>USB_ERROR_OTHER&#160;</td><td class="fielddoc"><p>Other error </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a id="a8fc2eb7158f7882e8b6ebf93d84023e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8fc2eb7158f7882e8b6ebf93d84023e8">&#9670;&nbsp;</a></span>FRAMETYPE</h2>
 
@@ -307,6 +319,26 @@ When the device inference is completed, the callback is triggered.  <a href="#a2
 <tr><td class="fieldname"><a id="a8fc2eb7158f7882e8b6ebf93d84023e8ac157bdf0b85a40d2619cbc8bc1ae5fe2"></a>NONE&#160;</td><td class="fielddoc"><p>&lt; AI modle config file </p>
 <p>&lt; reserve </p>
 </td></tr>
+</table>
+
+</div>
+</div>
+<a id="aa5a9053636a30269210c54e734e0d583"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a9053636a30269210c54e734e0d583">&#9670;&nbsp;</a></span>LOG_LEVEL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583">LOG_LEVEL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa5a9053636a30269210c54e734e0d583a6e98ff471e3ce6c4ef2d75c37ee51837"></a>LOG_INFO&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5a9053636a30269210c54e734e0d583ab9f002c6ffbfd511da8090213227454e"></a>LOG_DEBUG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5a9053636a30269210c54e734e0d583a230506cce5c68c3bac5a821c42ed3473"></a>LOG_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa5a9053636a30269210c54e734e0d583a84b90241077b63cd8c67e7a375f5044e"></a>LOG_SHOW&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -354,68 +386,52 @@ When the device inference is completed, the callback is triggered.  <a href="#a2
 
 </div>
 </div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a2995f8739fbaf9efeda7393a7d8d342a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2995f8739fbaf9efeda7393a7d8d342a">&#9670;&nbsp;</a></span>sync_process()</h2>
+<a id="a465873fe7681cf20279463acef99c12b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465873fe7681cf20279463acef99c12b">&#9670;&nbsp;</a></span>usb_error</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int sync_process </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *&#160;</td>
-          <td class="paramname"><em>input</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> *&#160;</td>
-          <td class="paramname"><em>output</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>timeout_ms</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="native__vpu__api_8h.html#a465873fe7681cf20279463acef99c12b">usb_error</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Synchronous inference function,blocking operation. <br />
-return when the device inference is completed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>Pointer to the inference handle,which has been initialized by SDK. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*input</td><td>Pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">*output</td><td>Pointer <a class="el" href="struct_ncc_pipe_output__t.html" title="AI Meta frame with header and data, get back from ncc device after finished one frame AI inference...">NccPipeOutput_t</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">timeout_ms</td><td>time out millisecond. The sdk would return after timeout </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>success, </td></tr>
-    <tr><td class="paramname">-1</td><td>timeout, </td></tr>
-    <tr><td class="paramname">-2</td><td>repeated call <div class="fragment"><div class="line">....................</div><div class="line"><a class="code" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *pInData = <a class="code" href="native__vpu__api_8h.html#a0791fdacea570763f5fd105358ce4096">ncc_malloc</a>(imageWidth*imageHeight*3);</div><div class="line"><span class="keywordflow">if</span>(pInData==0)</div><div class="line">{</div><div class="line">    printf(<span class="stringliteral">&quot;ncc_malloc error\n&quot;</span>);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line">...........</div><div class="line">...........</div><div class="line"><a class="code" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> pOutData;</div><div class="line"><span class="keywordtype">int</span> maxOutSize = 1024*1024;</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">output</a> = malloc(maxOutSize);</div><div class="line"><span class="keywordflow">if</span>(pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">output</a>==0)</div><div class="line">{</div><div class="line">  printf(<span class="stringliteral">&quot;&#39;nccMalloc error\n&quot;</span>);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#a43ab546b0fdc85de9d25d62dc4564e62">alloc_size</a> = maxOutSize;</div><div class="line">......................</div><div class="line">ret = <a class="code" href="native__vpu__api_8h.html#a2995f8739fbaf9efeda7393a7d8d342a">sync_process</a>(&amp;handle, pInData, &amp;pOutData, 10000);</div></div><!-- fragment --> </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>The list of the usb error code. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba68ee7000f7f5dbb4f98dfae7a80a4c0b"></a>USB_SUCCESS&#160;</td><td class="fielddoc"><p>&lt; Success (no error) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba960879789b1075bd9b47b979414d06aa"></a>USB_ERROR_IO&#160;</td><td class="fielddoc"><p>&lt; Input/output error </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba1ad3e7a09bb8449a427c858578cd5dfe"></a>USB_ERROR_INVALID_PARAM&#160;</td><td class="fielddoc"><p>&lt; Invalid parameter Access denied (insufficient permissions) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa8316f49a013fe42c875b513f5b22f2c"></a>USB_ERROR_ACCESS&#160;</td><td class="fielddoc"><p>No such device (it may have been disconnected) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba9c14d663c2bcafa5cd7b3d6af9f0d495"></a>USB_ERROR_NO_DEVICE&#160;</td><td class="fielddoc"><p>Entity not found </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba6d2b8352d62751116ce7624b9586680f"></a>USB_ERROR_NOT_FOUND&#160;</td><td class="fielddoc"><p>Resource busy </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba507e7f6e7fa2f1398d6e266c8ee57b12"></a>USB_ERROR_BUSY&#160;</td><td class="fielddoc"><p>Operation timed out </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba85482063a7560c05eb83929f49605b11"></a>USB_ERROR_TIMEOUT&#160;</td><td class="fielddoc"><p>Overflow </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba440bda375171acc09bca52acec2a3d12"></a>USB_ERROR_OVERFLOW&#160;</td><td class="fielddoc"><p>Pipe error </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa09c38dc46f0e2ad78e798b2663325c8"></a>USB_ERROR_PIPE&#160;</td><td class="fielddoc"><p>System call interrupted (perhaps due to signal) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baa10e7fe7b5c6b315400c65a0effe63bb"></a>USB_ERROR_INTERRUPTED&#160;</td><td class="fielddoc"><p>Insufficient memory </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12bac84412014e67c2f8ee3a08fb26447422"></a>USB_ERROR_NO_MEM&#160;</td><td class="fielddoc"><p>Operation not supported or unimplemented on this platform </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12baea575ecc0c1db2c6f13e1f4cb69f7218"></a>USB_ERROR_NOT_SUPPORTED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a465873fe7681cf20279463acef99c12ba5498ddefadc3e75907fae6ed15e54dfc"></a>USB_ERROR_OTHER&#160;</td><td class="fielddoc"><p>Other error </p>
+</td></tr>
+</table>
 
 </div>
 </div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a2d394e648e4e8fd44c64e2367f1b8032"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d394e648e4e8fd44c64e2367f1b8032">&#9670;&nbsp;</a></span>async_process()</h2>
 
@@ -458,143 +474,39 @@ When the device inference is completed, the callback is triggered. </p>
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>example:</dt><dd><div class="fragment"><div class="line">....................</div><div class="line"><a class="code" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *pInData = <a class="code" href="native__vpu__api_8h.html#a0791fdacea570763f5fd105358ce4096">ncc_malloc</a>(imageWidth*imageHeight*3);</div><div class="line"><span class="keywordflow">if</span>(pInData==0)</div><div class="line">{</div><div class="line">    printf(<span class="stringliteral">&quot;ncc_malloc error\n&quot;</span>);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line">...........</div><div class="line">...........</div><div class="line"><a class="code" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> pOutData;</div><div class="line"><span class="keywordtype">int</span> maxOutSize = 1024*1024;</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">output</a> = malloc(maxOutSize);</div><div class="line"><span class="keywordflow">if</span>(pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">output</a>==0)</div><div class="line">{</div><div class="line">  printf(<span class="stringliteral">&quot;&#39;nccMalloc error\n&quot;</span>);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#a43ab546b0fdc85de9d25d62dc4564e62">alloc_size</a> = maxOutSize;</div><div class="line">......................</div><div class="line"><a class="code" href="native__vpu__api_8h.html#a2d394e648e4e8fd44c64e2367f1b8032">async_process</a>(&amp;handle, pInData, &amp;pOutData, 10000);</div><div class="line"></div><div class="line"><a class="code" href="native__vpu__api_8h.html#a28a3cc175a88f0297a77bac718ef836e">ncc_pipe_queue_read</a>(handle, &amp;pOutData, 0);</div></div><!-- fragment --> </dd></dl>
+<dl class="section user"><dt>example:</dt><dd><div class="fragment"><div class="line">....................</div><div class="line"><a class="code" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *pInData = <a class="code" href="native__vpu__api_8h.html#a0791fdacea570763f5fd105358ce4096">ncc_malloc</a>(imageWidth*imageHeight*3);</div><div class="line"><span class="keywordflow">if</span>(pInData==0)</div><div class="line">{</div><div class="line">    printf(<span class="stringliteral">&quot;ncc_malloc error\n&quot;</span>);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line">...........</div><div class="line">...........</div><div class="line"><a class="code" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> pOutData;</div><div class="line"><span class="keywordtype">int</span> maxOutSize = 1024*1024;</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">output</a> = malloc(maxOutSize);</div><div class="line"><span class="keywordflow">if</span>(pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">output</a>==0)</div><div class="line">{</div><div class="line">  printf(<span class="stringliteral">&quot;&#39;nccMalloc error\n&quot;</span>);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ada7bcb072860f2382a830c911c8e2037">alloc_size</a> = maxOutSize;</div><div class="line">......................</div><div class="line"><a class="code" href="native__vpu__api_8h.html#a2d394e648e4e8fd44c64e2367f1b8032">async_process</a>(&amp;handle, pInData, &amp;pOutData, 10000);</div><div class="line"></div><div class="line"><a class="code" href="native__vpu__api_8h.html#a28a3cc175a88f0297a77bac718ef836e">ncc_pipe_queue_read</a>(handle, &amp;pOutData, 0);</div></div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
-<a id="a28a3cc175a88f0297a77bac718ef836e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28a3cc175a88f0297a77bac718ef836e">&#9670;&nbsp;</a></span>ncc_pipe_queue_read()</h2>
+<a id="a004eb966cf02eb95c1fd1c00a62520e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a004eb966cf02eb95c1fd1c00a62520e5">&#9670;&nbsp;</a></span>ncc_dev_id_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ncc_pipe_queue_read </td>
+          <td class="memname">int ncc_dev_id_get </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> *&#160;</td>
-          <td class="paramname"><em>pbuf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>time_out</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the output tensor information of the current pipeline. </p>
+<p>Get index of device handle according to handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*pbuf</td><td>pointer to buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">time_out</td><td>option to control blocking read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">0</td><td>Success </td></tr>
-    <tr><td class="paramname">-1</td><td>Read error </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0791fdacea570763f5fd105358ce4096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0791fdacea570763f5fd105358ce4096">&#9670;&nbsp;</a></span>ncc_malloc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a>* ncc_malloc </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>size</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ncc sdk malloc memory block </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>memory byte size want to malloc </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> memory block </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>failed </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a298a5120b438a6ef371fed08cf3a8c06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a298a5120b438a6ef371fed08cf3a8c06">&#9670;&nbsp;</a></span>ncc_free()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ncc_free </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *&#160;</td>
-          <td class="paramname"><em>buff</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ncc sdk free memory block </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*pData</td><td>pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> memory block </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-</div>
-</div>
-<a id="a86bb06155f887151f6489e6c34c30668"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86bb06155f887151f6489e6c34c30668">&#9670;&nbsp;</a></span>ncc_dev_number_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ncc_dev_number_get </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>scan all the ncc devices connected with the Host </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of devices scanned </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>non ncc devices scanned,others scanned number </td></tr>
+    <tr><td class="paramname">&gt;0</td><td>index of device which handle allocated to<br />
+</td></tr>
+    <tr><td class="paramname">-1</td><td>None corresponding handle created </td></tr>
   </table>
   </dd>
 </dl>
@@ -648,35 +560,27 @@ When the device inference is completed, the callback is triggered. </p>
 
 </div>
 </div>
-<a id="a004eb966cf02eb95c1fd1c00a62520e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a004eb966cf02eb95c1fd1c00a62520e5">&#9670;&nbsp;</a></span>ncc_dev_id_get()</h2>
+<a id="a86bb06155f887151f6489e6c34c30668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86bb06155f887151f6489e6c34c30668">&#9670;&nbsp;</a></span>ncc_dev_number_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ncc_dev_id_get </td>
+          <td class="memname">int ncc_dev_number_get </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get index of device handle according to handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>scan all the ncc devices connected with the Host </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of devices scanned </dd></dl>
 <dl class="retval"><dt>Return values</dt><dd>
   <table class="retval">
-    <tr><td class="paramname">&gt;0</td><td>index of device which handle allocated to<br />
-</td></tr>
-    <tr><td class="paramname">-1</td><td>None corresponding handle created </td></tr>
+    <tr><td class="paramname">0</td><td>None ncc devices scanned,others scanned number </td></tr>
   </table>
   </dd>
 </dl>
@@ -736,12 +640,407 @@ When the device inference is completed, the callback is triggered. </p>
 
 </div>
 </div>
+<a id="a2a0b852128dbdbb54ad4e3d291d6eb29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0b852128dbdbb54ad4e3d291d6eb29">&#9670;&nbsp;</a></span>ncc_dev_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_dev_start </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dev_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start all the pipelines on the device with specified serial number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_id</td><td>serial number of the device </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Success </td></tr>
+    <tr><td class="paramname">-1</td><td>Failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a298a5120b438a6ef371fed08cf3a8c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298a5120b438a6ef371fed08cf3a8c06">&#9670;&nbsp;</a></span>ncc_free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ncc_free </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *&#160;</td>
+          <td class="paramname"><em>buff</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ncc sdk free memory block </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*pData</td><td>pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> memory block </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>None </dd></dl>
+
+</div>
+</div>
+<a id="a778addb3b33b06195f59c534fb80781a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778addb3b33b06195f59c534fb80781a">&#9670;&nbsp;</a></span>ncc_input_tensor_descriptor_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_input_tensor_descriptor_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ncc_tensor_spec__t.html">NccTensorSpec_t</a> *&#160;</td>
+          <td class="paramname"><em>input_tensor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the input tensor information of the current pipeline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*input_tensor</td><td>pointer to the <a class="el" href="struct_ncc_tensor_spec__t.html" title="Tensor structure. ">NccTensorSpec_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Success </td></tr>
+    <tr><td class="paramname">-1</td><td>Failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0791fdacea570763f5fd105358ce4096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0791fdacea570763f5fd105358ce4096">&#9670;&nbsp;</a></span>ncc_malloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a>* ncc_malloc </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ncc sdk malloc memory block </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>memory byte size want to malloc </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> memory block </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6020d4eaab0ff40944ea43f24ebb4501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6020d4eaab0ff40944ea43f24ebb4501">&#9670;&nbsp;</a></span>ncc_output_tensor_descriptor_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_output_tensor_descriptor_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ncc_tensor_spec__t.html">NccTensorSpec_t</a> *&#160;</td>
+          <td class="paramname"><em>output_tensor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the output tensor information of the current pipeline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*output_tensor</td><td>pointer to the <a class="el" href="struct_ncc_tensor_spec__t.html" title="Tensor structure. ">NccTensorSpec_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Success </td></tr>
+    <tr><td class="paramname">-1</td><td>Failure </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a59c755a40572ce3be0d24ff2f480aee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c755a40572ce3be0d24ff2f480aee4">&#9670;&nbsp;</a></span>ncc_pipe_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_pipe_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="native__vpu__api_8h.html#aa778cf399cedd1546dfff2e734ba49f4">PROCESS_MODE</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the inference engine, read the parameters from the JSON file and <br />
+. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>enum PROCESS_MODE </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="section user"><dt>Sync blocking mode demo:</dt><dd><div class="fragment"><div class="line"><a class="code" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> handle = { NULL,\</div><div class="line">                              <span class="stringliteral">&quot;auto&quot;</span>,\</div><div class="line">                              <span class="stringliteral">&quot;face-detection-retail-0004&quot;</span>,\</div><div class="line">                              <span class="stringliteral">&quot;/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob&quot;</span>,\</div><div class="line">                              <span class="stringliteral">&quot;/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json&quot;</span>};</div><div class="line"> ret=<a class="code" href="native__vpu__api_8h.html#a59c755a40572ce3be0d24ff2f480aee4">ncc_pipe_create</a>(&amp;handle, <a class="code" href="native__vpu__api_8h.html#aa778cf399cedd1546dfff2e734ba49f4a06cd93014ebcbab9bb8e0aeecc339750">NCC_SYNC</a>);</div><div class="line"> <span class="keywordflow">if</span>(ret&gt;0)</div><div class="line"> {</div><div class="line">     printf(<span class="stringliteral">&quot;ncc_pipe_create error %d !\n&quot;</span>, ret);</div><div class="line">     <span class="keywordflow">return</span> -1;</div><div class="line"> }</div><div class="line"> ...</div><div class="line"> ...</div></div><!-- fragment --> </dd></dl>
+
+</div>
+</div>
+<a id="ada492952f8dbaf720b09d195e04000b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada492952f8dbaf720b09d195e04000b9">&#9670;&nbsp;</a></span>ncc_pipe_id_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_pipe_id_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the pipe index of this <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> on the device.<br />
+Generally speaking this pipe index is automatically assigned by SDK. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of pipe </dd></dl>
+
+</div>
+</div>
+<a id="a28a3cc175a88f0297a77bac718ef836e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28a3cc175a88f0297a77bac718ef836e">&#9670;&nbsp;</a></span>ncc_pipe_queue_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ncc_pipe_queue_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> *&#160;</td>
+          <td class="paramname"><em>pbuf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the output tensor information of the current pipeline. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to the <a class="el" href="struct_ncc_pipe_handle__t.html" title="Inference engine handle. After the user initializes the model file information,  the SDK will automat...">NccPipeHandle_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*pbuf</td><td>pointer to buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time_out</td><td>option to control blocking read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Success </td></tr>
+    <tr><td class="paramname">-1</td><td>Read error </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a60358e3c4b0bc13aefac93fa07f5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a60358e3c4b0bc13aefac93fa07f5f5">&#9670;&nbsp;</a></span>set_log_level()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_log_level </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="native__vpu__api_8h.html#aa5a9053636a30269210c54e734e0d583">LOG_LEVEL</a>&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set level of log print </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>enum LOG_LEVEL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2995f8739fbaf9efeda7393a7d8d342a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2995f8739fbaf9efeda7393a7d8d342a">&#9670;&nbsp;</a></span>sync_process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sync_process </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_handle__t.html">NccPipeHandle_t</a> *&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>timeout_ms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Synchronous inference function,blocking operation. <br />
+return when the device inference is completed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>Pointer to the inference handle,which has been initialized by SDK. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*input</td><td>Pointer to the <a class="el" href="struct_ncc_pipe_input__t.html" title="Frame data send to ncc device for AI inference. ">NccPipeInput_t</a> </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*output</td><td>Pointer <a class="el" href="struct_ncc_pipe_output__t.html" title="AI Meta frame with header and data, get back from ncc device after finished one frame AI inference...">NccPipeOutput_t</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">timeout_ms</td><td>time out millisecond. The sdk would return after timeout </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Successful acquisition return or failure </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>Success </td></tr>
+    <tr><td class="paramname">-1</td><td>Timeout </td></tr>
+    <tr><td class="paramname">-2</td><td>Repeated call <div class="fragment"><div class="line">....................</div><div class="line"><a class="code" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a> *pInData = <a class="code" href="native__vpu__api_8h.html#a0791fdacea570763f5fd105358ce4096">ncc_malloc</a>(imageWidth*imageHeight*3);</div><div class="line"><span class="keywordflow">if</span>(pInData==0)</div><div class="line">{</div><div class="line">    printf(<span class="stringliteral">&quot;ncc_malloc error\n&quot;</span>);</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line">...........</div><div class="line">...........</div><div class="line"><a class="code" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a> pOutData;</div><div class="line"><span class="keywordtype">int</span> maxOutSize = 1024*1024;</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">output</a> = malloc(maxOutSize);</div><div class="line"><span class="keywordflow">if</span>(pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">output</a>==0)</div><div class="line">{</div><div class="line">  printf(<span class="stringliteral">&quot;&#39;nccMalloc error\n&quot;</span>);</div><div class="line">  <span class="keywordflow">return</span> 0;</div><div class="line">}</div><div class="line"></div><div class="line">pOutData.<a class="code" href="struct_ncc_pipe_output__t.html#ada7bcb072860f2382a830c911c8e2037">alloc_size</a> = maxOutSize;</div><div class="line">......................</div><div class="line">ret = <a class="code" href="native__vpu__api_8h.html#a2995f8739fbaf9efeda7393a7d8d342a">sync_process</a>(&amp;handle, pInData, &amp;pOutData, 10000);</div></div><!-- fragment --> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_87da9a754c98629b142350329ff44e7d.html">opennccframe</a></li><li class="navelem"><a class="el" href="dir_e7c49058f94604667ed58eb07a1beb7c.html">native_vpu_api</a></li><li class="navelem"><a class="el" href="dir_5eb33dbb5c128bfaba79d0efdd77aeda.html">platform_engine</a></li><li class="navelem"><a class="el" href="dir_67e476916a250b563c3f3c210a39e976.html">include</a></li><li class="navelem"><a class="el" href="native__vpu__api_8h.html">native_vpu_api.h</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

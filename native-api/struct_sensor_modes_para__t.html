@@ -9,9 +9,19 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('struct_sensor_modes_para__t.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,7 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -73,103 +103,41 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aea89431596e0ff8f8f69546084366077"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#aea89431596e0ff8f8f69546084366077">moduleName</a> [16]</td></tr>
-<tr class="separator:aea89431596e0ff8f8f69546084366077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc105689507d02172635cb041c71672f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#abc105689507d02172635cb041c71672f">camWidth</a></td></tr>
-<tr class="memdesc:abc105689507d02172635cb041c71672f"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; the name of the sensor  <a href="#abc105689507d02172635cb041c71672f">More...</a><br /></td></tr>
-<tr class="separator:abc105689507d02172635cb041c71672f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a421eeb4f9312ab29f8b1116ecfa46d9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a421eeb4f9312ab29f8b1116ecfa46d9e">camHeight</a></td></tr>
-<tr class="memdesc:a421eeb4f9312ab29f8b1116ecfa46d9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; output resolution of the width  <a href="#a421eeb4f9312ab29f8b1116ecfa46d9e">More...</a><br /></td></tr>
-<tr class="separator:a421eeb4f9312ab29f8b1116ecfa46d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e076a711bc5efa70bf50fc9366d2784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a6e076a711bc5efa70bf50fc9366d2784">camFps</a></td></tr>
-<tr class="memdesc:a6e076a711bc5efa70bf50fc9366d2784"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; output resolution of the height  <a href="#a6e076a711bc5efa70bf50fc9366d2784">More...</a><br /></td></tr>
-<tr class="separator:a6e076a711bc5efa70bf50fc9366d2784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b0cbf45b94669d4aa40eb8acf7adf7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#ac2b0cbf45b94669d4aa40eb8acf7adf7">AFmode</a></td></tr>
-<tr class="memdesc:ac2b0cbf45b94669d4aa40eb8acf7adf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; frame rates per second  <a href="#ac2b0cbf45b94669d4aa40eb8acf7adf7">More...</a><br /></td></tr>
-<tr class="separator:ac2b0cbf45b94669d4aa40eb8acf7adf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc0d6a6cce7bf66d5b73cc343e054850"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#abc0d6a6cce7bf66d5b73cc343e054850">maxEXP</a></td></tr>
-<tr class="memdesc:abc0d6a6cce7bf66d5b73cc343e054850"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; support AF or not, if your camera use fixed focal lens, not support it  <a href="#abc0d6a6cce7bf66d5b73cc343e054850">More...</a><br /></td></tr>
-<tr class="separator:abc0d6a6cce7bf66d5b73cc343e054850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e898cd86e8683bdda9b715e4e67aa4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a17e898cd86e8683bdda9b715e4e67aa4">minGain</a></td></tr>
-<tr class="memdesc:a17e898cd86e8683bdda9b715e4e67aa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; maximum exposure time, unit us  <a href="#a17e898cd86e8683bdda9b715e4e67aa4">More...</a><br /></td></tr>
-<tr class="separator:a17e898cd86e8683bdda9b715e4e67aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c4fcf5276e6216e11d6ed3df88d455b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a6c4fcf5276e6216e11d6ed3df88d455b">maxGain</a></td></tr>
-<tr class="memdesc:a6c4fcf5276e6216e11d6ed3df88d455b"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; min exposure gain value,100 means x1  <a href="#a6c4fcf5276e6216e11d6ed3df88d455b">More...</a><br /></td></tr>
-<tr class="separator:a6c4fcf5276e6216e11d6ed3df88d455b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af05538d64dd1c44a4a7e033dc24b0515"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#af05538d64dd1c44a4a7e033dc24b0515">moduleName</a> [16]</td></tr>
+<tr class="separator:af05538d64dd1c44a4a7e033dc24b0515"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3c69d1284f87da26d3375c5eb9d629"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a2a3c69d1284f87da26d3375c5eb9d629">camWidth</a></td></tr>
+<tr class="memdesc:a2a3c69d1284f87da26d3375c5eb9d629"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; the name of the sensor  <a href="#a2a3c69d1284f87da26d3375c5eb9d629">More...</a><br /></td></tr>
+<tr class="separator:a2a3c69d1284f87da26d3375c5eb9d629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af342996da6be43b7778b428ed1dc5050"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#af342996da6be43b7778b428ed1dc5050">camHeight</a></td></tr>
+<tr class="memdesc:af342996da6be43b7778b428ed1dc5050"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; output resolution of the width  <a href="#af342996da6be43b7778b428ed1dc5050">More...</a><br /></td></tr>
+<tr class="separator:af342996da6be43b7778b428ed1dc5050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae050063a087c1ac834fb402617fbd720"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#ae050063a087c1ac834fb402617fbd720">camFps</a></td></tr>
+<tr class="memdesc:ae050063a087c1ac834fb402617fbd720"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; output resolution of the height  <a href="#ae050063a087c1ac834fb402617fbd720">More...</a><br /></td></tr>
+<tr class="separator:ae050063a087c1ac834fb402617fbd720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab42a00aecf7759a21ec745f16399f326"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#ab42a00aecf7759a21ec745f16399f326">AFmode</a></td></tr>
+<tr class="memdesc:ab42a00aecf7759a21ec745f16399f326"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; frame rates per second  <a href="#ab42a00aecf7759a21ec745f16399f326">More...</a><br /></td></tr>
+<tr class="separator:ab42a00aecf7759a21ec745f16399f326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff756f765abe2601a77cfcd83305ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a6ff756f765abe2601a77cfcd83305ccb">maxEXP</a></td></tr>
+<tr class="memdesc:a6ff756f765abe2601a77cfcd83305ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; support AF or not, if your camera use fixed focal lens, not support it  <a href="#a6ff756f765abe2601a77cfcd83305ccb">More...</a><br /></td></tr>
+<tr class="separator:a6ff756f765abe2601a77cfcd83305ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8319b421d9035c497a053eabc231d236"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#a8319b421d9035c497a053eabc231d236">minGain</a></td></tr>
+<tr class="memdesc:a8319b421d9035c497a053eabc231d236"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; maximum exposure time, unit us  <a href="#a8319b421d9035c497a053eabc231d236">More...</a><br /></td></tr>
+<tr class="separator:a8319b421d9035c497a053eabc231d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5174802035d4a2bd30ef085ff926ef2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sensor_modes_para__t.html#aa5174802035d4a2bd30ef085ff926ef2">maxGain</a></td></tr>
+<tr class="memdesc:aa5174802035d4a2bd30ef085ff926ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; min exposure gain value,100 means x1  <a href="#aa5174802035d4a2bd30ef085ff926ef2">More...</a><br /></td></tr>
+<tr class="separator:aa5174802035d4a2bd30ef085ff926ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>List of camera control parameters. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="aea89431596e0ff8f8f69546084366077"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea89431596e0ff8f8f69546084366077">&#9670;&nbsp;</a></span>moduleName</h2>
+<a id="ab42a00aecf7759a21ec745f16399f326"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab42a00aecf7759a21ec745f16399f326">&#9670;&nbsp;</a></span>AFmode</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char moduleName[16]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abc105689507d02172635cb041c71672f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc105689507d02172635cb041c71672f">&#9670;&nbsp;</a></span>camWidth</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int camWidth</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>&lt; the name of the sensor </p>
-
-</div>
-</div>
-<a id="a421eeb4f9312ab29f8b1116ecfa46d9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a421eeb4f9312ab29f8b1116ecfa46d9e">&#9670;&nbsp;</a></span>camHeight</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int camHeight</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>&lt; output resolution of the width </p>
-
-</div>
-</div>
-<a id="a6e076a711bc5efa70bf50fc9366d2784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e076a711bc5efa70bf50fc9366d2784">&#9670;&nbsp;</a></span>camFps</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int camFps</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>&lt; output resolution of the height </p>
-
-</div>
-</div>
-<a id="ac2b0cbf45b94669d4aa40eb8acf7adf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b0cbf45b94669d4aa40eb8acf7adf7">&#9670;&nbsp;</a></span>AFmode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int AFmode</td>
+          <td class="memname">int SensorModesPara_t::AFmode</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -178,14 +146,62 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="abc0d6a6cce7bf66d5b73cc343e054850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0d6a6cce7bf66d5b73cc343e054850">&#9670;&nbsp;</a></span>maxEXP</h2>
+<a id="ae050063a087c1ac834fb402617fbd720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae050063a087c1ac834fb402617fbd720">&#9670;&nbsp;</a></span>camFps</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int maxEXP</td>
+          <td class="memname">int SensorModesPara_t::camFps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&lt; output resolution of the height </p>
+
+</div>
+</div>
+<a id="af342996da6be43b7778b428ed1dc5050"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af342996da6be43b7778b428ed1dc5050">&#9670;&nbsp;</a></span>camHeight</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SensorModesPara_t::camHeight</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&lt; output resolution of the width </p>
+
+</div>
+</div>
+<a id="a2a3c69d1284f87da26d3375c5eb9d629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3c69d1284f87da26d3375c5eb9d629">&#9670;&nbsp;</a></span>camWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SensorModesPara_t::camWidth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&lt; the name of the sensor </p>
+
+</div>
+</div>
+<a id="a6ff756f765abe2601a77cfcd83305ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff756f765abe2601a77cfcd83305ccb">&#9670;&nbsp;</a></span>maxEXP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SensorModesPara_t::maxEXP</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -194,30 +210,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a17e898cd86e8683bdda9b715e4e67aa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17e898cd86e8683bdda9b715e4e67aa4">&#9670;&nbsp;</a></span>minGain</h2>
+<a id="aa5174802035d4a2bd30ef085ff926ef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5174802035d4a2bd30ef085ff926ef2">&#9670;&nbsp;</a></span>maxGain</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int minGain</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>&lt; maximum exposure time, unit us </p>
-
-</div>
-</div>
-<a id="a6c4fcf5276e6216e11d6ed3df88d455b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c4fcf5276e6216e11d6ed3df88d455b">&#9670;&nbsp;</a></span>maxGain</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int maxGain</td>
+          <td class="memname">int SensorModesPara_t::maxGain</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -226,15 +226,46 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/<a class="el" href="camera_ctrl_8h_source.html">cameraCtrl.h</a></li>
-</ul>
+<a id="a8319b421d9035c497a053eabc231d236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8319b421d9035c497a053eabc231d236">&#9670;&nbsp;</a></span>minGain</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SensorModesPara_t::minGain</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>&lt; maximum exposure time, unit us </p>
+
+</div>
+</div>
+<a id="af05538d64dd1c44a4a7e033dc24b0515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05538d64dd1c44a4a7e033dc24b0515">&#9670;&nbsp;</a></span>moduleName</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char SensorModesPara_t::moduleName[16]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_sensor_modes_para__t.html">SensorModesPara_t</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

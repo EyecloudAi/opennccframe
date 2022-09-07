@@ -1,1 +1,0 @@
-## OpenNCC Frame

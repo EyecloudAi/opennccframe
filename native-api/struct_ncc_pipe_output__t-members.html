@@ -9,9 +9,19 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('struct_ncc_pipe_output__t.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,7 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">NccPipeOutput_t Member List</div>  </div>
@@ -65,19 +95,22 @@ $(function() {
 
 <p>This is the complete list of members for <a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#a28c8cf54c992fad286a575891ec0bb75">actual_size</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#a43ab546b0fdc85de9d25d62dc4564e62">alloc_size</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#aae845670aa10d83c79e78b57faa9a717">elapsed_time</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">output</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ad8407fff9b61e9c82fff433ca4b4098b">reserved</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#a561957a7a6b76d60ff43c4bd688c8363">seqNo</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#a6d406d06f3a3fc88b9069264be7a1223">type</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ad650603d9cb75f02849763ba42614496">actual_size</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ada7bcb072860f2382a830c911c8e2037">alloc_size</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#a6e7b56a57323cec060ff04a0fd8241f7">elapsed_time</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">output</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ac4fff0c150180790449c5d04beaff3ad">reserved</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ad974542c0544a28dba7b80852d8e0f7b">seqNo</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html#ad3c7c090135dc737177ed8667bf0e6ad">type</a></td><td class="entry"><a class="el" href="struct_ncc_pipe_output__t.html">NccPipeOutput_t</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

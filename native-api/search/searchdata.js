@@ -5,8 +5,8 @@ var indexSectionsWithContent =
   2: "cin",
   3: "acdns",
   4: "acdeijlmnoprst",
-  5: "cfmpuv",
-  6: "bchjmnuvy",
+  5: "cflmpuv",
+  6: "bchjlmnuvy",
   7: "_bfimstu",
   8: "b"
 };

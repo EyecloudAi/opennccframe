@@ -9,9 +9,19 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('struct_ncc_pipe_input__t.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,7 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -73,87 +103,28 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af3f6213d518fb99f902a09d03c8773cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8">FRAMETYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#af3f6213d518fb99f902a09d03c8773cc">type</a></td></tr>
-<tr class="separator:af3f6213d518fb99f902a09d03c8773cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a561957a7a6b76d60ff43c4bd688c8363"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a561957a7a6b76d60ff43c4bd688c8363">seqNo</a></td></tr>
-<tr class="separator:a561957a7a6b76d60ff43c4bd688c8363"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439227feff9d7f55384e8780cfc2eb82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a439227feff9d7f55384e8780cfc2eb82">size</a></td></tr>
-<tr class="separator:a439227feff9d7f55384e8780cfc2eb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e0332626101cffe36fb75e21eb82c42"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a3e0332626101cffe36fb75e21eb82c42">reserved</a> [11]</td></tr>
-<tr class="separator:a3e0332626101cffe36fb75e21eb82c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7a32d1060db5fb76b1bd8aa2abced98"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#ab7a32d1060db5fb76b1bd8aa2abced98">input</a></td></tr>
-<tr class="separator:ab7a32d1060db5fb76b1bd8aa2abced98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7720f41922ccc2390c3ed34930e9e9b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8">FRAMETYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a7720f41922ccc2390c3ed34930e9e9b3">type</a></td></tr>
+<tr class="separator:a7720f41922ccc2390c3ed34930e9e9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee44feb8d970d7034950f1257760691"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a9ee44feb8d970d7034950f1257760691">seqNo</a></td></tr>
+<tr class="separator:a9ee44feb8d970d7034950f1257760691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b3ec5fb7eb74e48835a6cac68fe6c59"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a5b3ec5fb7eb74e48835a6cac68fe6c59">size</a></td></tr>
+<tr class="separator:a5b3ec5fb7eb74e48835a6cac68fe6c59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43458ca832fa2bbf66e9f432063c565"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#af43458ca832fa2bbf66e9f432063c565">reserved</a> [11]</td></tr>
+<tr class="separator:af43458ca832fa2bbf66e9f432063c565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93c08f2d006697ed3b12373a29508081"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_pipe_input__t.html#a93c08f2d006697ed3b12373a29508081">input</a></td></tr>
+<tr class="separator:a93c08f2d006697ed3b12373a29508081"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Frame data send to ncc device for AI inference. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="af3f6213d518fb99f902a09d03c8773cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f6213d518fb99f902a09d03c8773cc">&#9670;&nbsp;</a></span>type</h2>
+<a id="a93c08f2d006697ed3b12373a29508081"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93c08f2d006697ed3b12373a29508081">&#9670;&nbsp;</a></span>input</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8">FRAMETYPE</a> type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a561957a7a6b76d60ff43c4bd688c8363"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a561957a7a6b76d60ff43c4bd688c8363">&#9670;&nbsp;</a></span>seqNo</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int seqNo</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>&lt; Image format </p>
-
-</div>
-</div>
-<a id="a439227feff9d7f55384e8780cfc2eb82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a439227feff9d7f55384e8780cfc2eb82">&#9670;&nbsp;</a></span>size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int size</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>&lt; the frame sequence number </p>
-
-</div>
-</div>
-<a id="a3e0332626101cffe36fb75e21eb82c42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e0332626101cffe36fb75e21eb82c42">&#9670;&nbsp;</a></span>reserved</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int reserved[11]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>&lt; Bytes size of the frame </p>
-
-</div>
-</div>
-<a id="ab7a32d1060db5fb76b1bd8aa2abced98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7a32d1060db5fb76b1bd8aa2abced98">&#9670;&nbsp;</a></span>input</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* input</td>
+          <td class="memname">char* NccPipeInput_t::input</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -161,15 +132,75 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/<a class="el" href="native__vpu__api_8h_source.html">native_vpu_api.h</a></li>
-</ul>
+<a id="af43458ca832fa2bbf66e9f432063c565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43458ca832fa2bbf66e9f432063c565">&#9670;&nbsp;</a></span>reserved</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int NccPipeInput_t::reserved[11]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt; Bytes size of the frame </p>
+
+</div>
+</div>
+<a id="a9ee44feb8d970d7034950f1257760691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee44feb8d970d7034950f1257760691">&#9670;&nbsp;</a></span>seqNo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int NccPipeInput_t::seqNo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt; Image format </p>
+
+</div>
+</div>
+<a id="a5b3ec5fb7eb74e48835a6cac68fe6c59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b3ec5fb7eb74e48835a6cac68fe6c59">&#9670;&nbsp;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int NccPipeInput_t::size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt; the frame sequence number </p>
+
+</div>
+</div>
+<a id="a7720f41922ccc2390c3ed34930e9e9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7720f41922ccc2390c3ed34930e9e9b3">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="native__vpu__api_8h.html#a8fc2eb7158f7882e8b6ebf93d84023e8">FRAMETYPE</a> NccPipeInput_t::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_ncc_pipe_input__t.html">NccPipeInput_t</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

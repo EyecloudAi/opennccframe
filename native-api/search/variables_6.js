@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['length',['length',['../struct_ncc_usb_port_spec__t.html#a1d0200ce41f41e59e68135b78f3466a8',1,'NccUsbPortSpec_t']]]
+  ['length',['length',['../struct_ncc_usb_port_spec__t.html#abb49a3bf44d45b39bce0f3723f9fef6f',1,'NccUsbPortSpec_t']]]
 ];

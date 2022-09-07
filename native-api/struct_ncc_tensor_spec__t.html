@@ -9,9 +9,19 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,15 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
 <script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
+$(document).ready(function(){initNavTree('struct_ncc_tensor_spec__t.html','');});
 </script>
-<div id="main-nav"></div>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -56,7 +87,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -73,37 +103,37 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a70b5e28b5bc3d1b63a7435c5fe50b837"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_tensor_spec__t.html#a70b5e28b5bc3d1b63a7435c5fe50b837">dim</a></td></tr>
-<tr class="separator:a70b5e28b5bc3d1b63a7435c5fe50b837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91d88d60fb3f5b6c87ad9a3cc45e365a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_tensor_spec__t.html#a91d88d60fb3f5b6c87ad9a3cc45e365a">tensor</a> [4]</td></tr>
-<tr class="memdesc:a91d88d60fb3f5b6c87ad9a3cc45e365a"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Dim of vector  <a href="#a91d88d60fb3f5b6c87ad9a3cc45e365a">More...</a><br /></td></tr>
-<tr class="separator:a91d88d60fb3f5b6c87ad9a3cc45e365a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2540bb4ede34bdc2182044ffaa98d71"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_tensor_spec__t.html#ab2540bb4ede34bdc2182044ffaa98d71">dim</a></td></tr>
+<tr class="separator:ab2540bb4ede34bdc2182044ffaa98d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a53af15ca0626c62eb1fc0634714ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ncc_tensor_spec__t.html#a32a53af15ca0626c62eb1fc0634714ac">tensor</a> [4]</td></tr>
+<tr class="memdesc:a32a53af15ca0626c62eb1fc0634714ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Dim of vector  <a href="#a32a53af15ca0626c62eb1fc0634714ac">More...</a><br /></td></tr>
+<tr class="separator:a32a53af15ca0626c62eb1fc0634714ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Tensor structure. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a70b5e28b5bc3d1b63a7435c5fe50b837"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70b5e28b5bc3d1b63a7435c5fe50b837">&#9670;&nbsp;</a></span>dim</h2>
+<a id="ab2540bb4ede34bdc2182044ffaa98d71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2540bb4ede34bdc2182044ffaa98d71">&#9670;&nbsp;</a></span>dim</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int dim</td>
+          <td class="memname">int NccTensorSpec_t::dim</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a91d88d60fb3f5b6c87ad9a3cc45e365a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91d88d60fb3f5b6c87ad9a3cc45e365a">&#9670;&nbsp;</a></span>tensor</h2>
+<a id="a32a53af15ca0626c62eb1fc0634714ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a53af15ca0626c62eb1fc0634714ac">&#9670;&nbsp;</a></span>tensor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int tensor[4]</td>
+          <td class="memname">int NccTensorSpec_t::tensor[4]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -112,15 +142,16 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/zed/movidius/openncc_frame/native_vpu_api/platform_engine/include/<a class="el" href="native__vpu__api_8h_source.html">native_vpu_api.h</a></li>
-</ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_ncc_tensor_spec__t.html">NccTensorSpec_t</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>

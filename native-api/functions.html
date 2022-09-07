@@ -9,9 +9,19 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -24,6 +34,21 @@
    <div id="projectname">openncc frame
    </div>
   </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
  </tr>
  </tbody>
 </table>
@@ -33,16 +58,21 @@
 <script type="text/javascript">
 var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
-<script type="text/javascript" src="menudata.js"></script>
-<script type="text/javascript" src="menu.js"></script>
-<script type="text/javascript">
-$(function() {
-  initMenu('',true,false,'search.php','Search');
-  $(document).ready(function() { init_search(); });
-});
-</script>
-<div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('functions.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,151 +92,154 @@ $(function() {
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>actual_size
-: <a class="el" href="struct_ncc_pipe_output__t.html#a28c8cf54c992fad286a575891ec0bb75">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_output__t.html#ad650603d9cb75f02849763ba42614496">NccPipeOutput_t</a>
 </li>
 <li>AFmode
-: <a class="el" href="struct_sensor_modes_para__t.html#ac2b0cbf45b94669d4aa40eb8acf7adf7">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#ab42a00aecf7759a21ec745f16399f326">SensorModesPara_t</a>
 </li>
 <li>alloc_size
-: <a class="el" href="struct_ncc_pipe_output__t.html#a43ab546b0fdc85de9d25d62dc4564e62">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_output__t.html#ada7bcb072860f2382a830c911c8e2037">NccPipeOutput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>camFps
-: <a class="el" href="struct_sensor_modes_para__t.html#a6e076a711bc5efa70bf50fc9366d2784">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#ae050063a087c1ac834fb402617fbd720">SensorModesPara_t</a>
 </li>
 <li>camHeight
-: <a class="el" href="struct_sensor_modes_para__t.html#a421eeb4f9312ab29f8b1116ecfa46d9e">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#af342996da6be43b7778b428ed1dc5050">SensorModesPara_t</a>
 </li>
 <li>camWidth
-: <a class="el" href="struct_sensor_modes_para__t.html#abc105689507d02172635cb041c71672f">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#a2a3c69d1284f87da26d3375c5eb9d629">SensorModesPara_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>dev_sn
-: <a class="el" href="struct_ncc_pipe_handle__t.html#afb53ab734c639bfc3b989af83eb99640">NccPipeHandle_t</a>
+: <a class="el" href="struct_ncc_pipe_handle__t.html#a67767f2c0020c51be5ff0be32581df01">NccPipeHandle_t</a>
 </li>
 <li>dim
-: <a class="el" href="struct_ncc_tensor_spec__t.html#a70b5e28b5bc3d1b63a7435c5fe50b837">NccTensorSpec_t</a>
+: <a class="el" href="struct_ncc_tensor_spec__t.html#ab2540bb4ede34bdc2182044ffaa98d71">NccTensorSpec_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_e"></a>- e -</h3><ul>
 <li>elapsed_time
-: <a class="el" href="struct_ncc_pipe_output__t.html#aae845670aa10d83c79e78b57faa9a717">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_output__t.html#a6e7b56a57323cec060ff04a0fd8241f7">NccPipeOutput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>input
-: <a class="el" href="struct_ncc_pipe_input__t.html#ab7a32d1060db5fb76b1bd8aa2abced98">NccPipeInput_t</a>
+: <a class="el" href="struct_ncc_pipe_input__t.html#a93c08f2d006697ed3b12373a29508081">NccPipeInput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_j"></a>- j -</h3><ul>
 <li>json_path
-: <a class="el" href="struct_ncc_pipe_handle__t.html#a2f78c6f8bfaa8982083310ad9ac5b3d2">NccPipeHandle_t</a>
+: <a class="el" href="struct_ncc_pipe_handle__t.html#a65900e951cca0627a1dd70729f9ad98f">NccPipeHandle_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>length
-: <a class="el" href="struct_ncc_usb_port_spec__t.html#a1d0200ce41f41e59e68135b78f3466a8">NccUsbPortSpec_t</a>
+: <a class="el" href="struct_ncc_usb_port_spec__t.html#abb49a3bf44d45b39bce0f3723f9fef6f">NccUsbPortSpec_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
 <li>maxEXP
-: <a class="el" href="struct_sensor_modes_para__t.html#abc0d6a6cce7bf66d5b73cc343e054850">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#a6ff756f765abe2601a77cfcd83305ccb">SensorModesPara_t</a>
 </li>
 <li>maxGain
-: <a class="el" href="struct_sensor_modes_para__t.html#a6c4fcf5276e6216e11d6ed3df88d455b">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#aa5174802035d4a2bd30ef085ff926ef2">SensorModesPara_t</a>
 </li>
 <li>minGain
-: <a class="el" href="struct_sensor_modes_para__t.html#a17e898cd86e8683bdda9b715e4e67aa4">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#a8319b421d9035c497a053eabc231d236">SensorModesPara_t</a>
 </li>
 <li>mode
-: <a class="el" href="struct_sensor_modes_list__t.html#afda93074c44aab72c293f2f9b63c6851">SensorModesList_t</a>
+: <a class="el" href="struct_sensor_modes_list__t.html#a95acc4defd30756f8cd3dd414f9b7930">SensorModesList_t</a>
 </li>
 <li>model_path
-: <a class="el" href="struct_ncc_pipe_handle__t.html#ab4ab622da072638b5c2eb5618e03e066">NccPipeHandle_t</a>
+: <a class="el" href="struct_ncc_pipe_handle__t.html#a1bb53a3c2e65c953419c916a99e4fb70">NccPipeHandle_t</a>
 </li>
 <li>moduleName
-: <a class="el" href="struct_sensor_modes_para__t.html#aea89431596e0ff8f8f69546084366077">SensorModesPara_t</a>
+: <a class="el" href="struct_sensor_modes_para__t.html#af05538d64dd1c44a4a7e033dc24b0515">SensorModesPara_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
 <li>num
-: <a class="el" href="struct_sensor_modes_list__t.html#a86cf672daa4e0ad11ad10efc894d19c8">SensorModesList_t</a>
+: <a class="el" href="struct_sensor_modes_list__t.html#a4560bfa6520880f3b48b3e0d086213eb">SensorModesList_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>output
-: <a class="el" href="struct_ncc_pipe_output__t.html#ab5ca8a43989163ae5327ced4ccee2ddd">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_output__t.html#af94088e0c716cd6cb34108a5585b74d8">NccPipeOutput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>parent
-: <a class="el" href="struct_ncc_pipe_handle__t.html#a5f450b216725a37cbc0acd54340144d9">NccPipeHandle_t</a>
+: <a class="el" href="struct_ncc_pipe_handle__t.html#a34288d0d1044f01d94e94b1b00ebdb68">NccPipeHandle_t</a>
 </li>
 <li>path
-: <a class="el" href="struct_ncc_usb_port_spec__t.html#ac3f3ec9f7cfcdaf6bad66650c655177f">NccUsbPortSpec_t</a>
+: <a class="el" href="struct_ncc_usb_port_spec__t.html#a486a9f3ae7dd8147b7f24c59edb2b7aa">NccUsbPortSpec_t</a>
 </li>
 <li>pipe_name
-: <a class="el" href="struct_ncc_pipe_handle__t.html#a8c3265b9143d4b157ebe321120608f64">NccPipeHandle_t</a>
+: <a class="el" href="struct_ncc_pipe_handle__t.html#a30391a15ef29b305fb5574633186ba0f">NccPipeHandle_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
 <li>reserved
-: <a class="el" href="struct_ncc_pipe_input__t.html#a3e0332626101cffe36fb75e21eb82c42">NccPipeInput_t</a>
-, <a class="el" href="struct_ncc_pipe_output__t.html#ad8407fff9b61e9c82fff433ca4b4098b">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_input__t.html#af43458ca832fa2bbf66e9f432063c565">NccPipeInput_t</a>
+, <a class="el" href="struct_ncc_pipe_output__t.html#ac4fff0c150180790449c5d04beaff3ad">NccPipeOutput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>seqNo
-: <a class="el" href="struct_ncc_pipe_input__t.html#a561957a7a6b76d60ff43c4bd688c8363">NccPipeInput_t</a>
-, <a class="el" href="struct_ncc_pipe_output__t.html#a561957a7a6b76d60ff43c4bd688c8363">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_input__t.html#a9ee44feb8d970d7034950f1257760691">NccPipeInput_t</a>
+, <a class="el" href="struct_ncc_pipe_output__t.html#ad974542c0544a28dba7b80852d8e0f7b">NccPipeOutput_t</a>
 </li>
 <li>size
-: <a class="el" href="struct_ncc_pipe_input__t.html#a439227feff9d7f55384e8780cfc2eb82">NccPipeInput_t</a>
+: <a class="el" href="struct_ncc_pipe_input__t.html#a5b3ec5fb7eb74e48835a6cac68fe6c59">NccPipeInput_t</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>tensor
-: <a class="el" href="struct_ncc_tensor_spec__t.html#a91d88d60fb3f5b6c87ad9a3cc45e365a">NccTensorSpec_t</a>
+: <a class="el" href="struct_ncc_tensor_spec__t.html#a32a53af15ca0626c62eb1fc0634714ac">NccTensorSpec_t</a>
 </li>
 <li>type
-: <a class="el" href="struct_ncc_pipe_input__t.html#af3f6213d518fb99f902a09d03c8773cc">NccPipeInput_t</a>
-, <a class="el" href="struct_ncc_pipe_output__t.html#a6d406d06f3a3fc88b9069264be7a1223">NccPipeOutput_t</a>
+: <a class="el" href="struct_ncc_pipe_input__t.html#a7720f41922ccc2390c3ed34930e9e9b3">NccPipeInput_t</a>
+, <a class="el" href="struct_ncc_pipe_output__t.html#ad3c7c090135dc737177ed8667bf0e6ad">NccPipeOutput_t</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
 </body>
 </html>
