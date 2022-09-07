@@ -178,8 +178,8 @@ typedef struct
   * NccPipeHandle_t handle = { NULL,\
                                  "auto",\
                                  "face-detection-retail-0004",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
     ret=ncc_pipe_create(&handle, NCC_SYNC);
     if(ret>0)
     {
@@ -190,7 +190,7 @@ typedef struct
   */
 typedef struct
 {
-    void *parent;  /**  Parent handle to the engine，read-only   */
+    void *parent;  /**  Parent handle to the engine, read-only   */
     char dev_sn[64];   /** <  Assigned engine's serial number */
     char pipe_name[128]; /** <  User named pipe name.*/
     char model_path[128]; /** < AI model file path to download and inference*/
@@ -223,9 +223,9 @@ extern "C" {
  * @param[out] *output Pointer NccPipeOutput_t
  * @param[in] timeout_ms time out millisecond. The sdk would return after timeout
  * @return Successful acquisition return or failure
- *   @retval 0 success,
- *   @retval -1 timeout,
- *   @retval -2 repeated call
+ *   @retval  0 Success
+ *   @retval -1 Timeout
+ *   @retval -2 Repeated call
  * @code
     ....................
     NccPipeInput_t *pInData = ncc_malloc(imageWidth*imageHeight*3);
@@ -259,7 +259,7 @@ int sync_process(NccPipeHandle_t *handle, NccPipeInput_t *input, NccPipeOutput_t
  * @param *handle Pointer to the inference handle,which has been initialized by SDK.
  * @param *input Pointer NccPipeInput_t
  * @return Successful acquisition return or failure
- *   @retval 0  Success
+ *   @retval 0 Success
  * @par example:
  * @code
     ....................
@@ -297,7 +297,7 @@ int async_process(NccPipeHandle_t *handle, NccPipeInput_t *input);
  * @param[in] *pbuf pointer to buffer
  * @param[in] time_out option to control blocking read.
  * @return Successful acquisition return or failure
- *   @retval 0 Success
+ *   @retval  0 Success
  *   @retval -1 Read error
  */
 int ncc_pipe_queue_read(NccPipeHandle_t *handle, NccPipeOutput_t *pbuf, int time_out);
@@ -306,21 +306,21 @@ int ncc_pipe_queue_read(NccPipeHandle_t *handle, NccPipeOutput_t *pbuf, int time
  * @brief ncc sdk malloc memory block
  * @param[in] size memory byte size want to malloc
  * @return Pointer to the NccPipeInput_t memory block
- * @retval 0 failed
+ * @retval 0 Failure
  */
 NccPipeInput_t *ncc_malloc(int size);
 
 /**
  * @brief ncc sdk free memory block
  * @param[in] *pData pointer to the NccPipeInput_t memory block
- * @return none
+ * @return None
  */
 void ncc_free(NccPipeInput_t *buff);
 
 /**
  * @brief scan all the ncc devices connected with the Host
  * @return Number of devices scanned
- * @retval 0 non ncc devices scanned,others scanned number
+ * @retval 0 None ncc devices scanned,others scanned number
  */
 int ncc_dev_number_get(void);
 
@@ -362,13 +362,13 @@ int ncc_dev_serial_number_get(NccUsbPortSpec_t *port, char *string, int size);
  * @param[in] *handle pointer to the NccPipeHandle_t
  * @param[in] mode enum PROCESS_MODE
  * @return Successful acquisition return or failure
- * @par Sync blocking mode demo：
+ * @par Sync blocking mode demo:
  * @code
  * NccPipeHandle_t handle = { NULL,\
                                  "auto",\
                                  "face-detection-retail-0004",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_BGR.json"};
     ret=ncc_pipe_create(&handle, NCC_SYNC);
     if(ret>0)
     {
@@ -377,7 +377,7 @@ int ncc_dev_serial_number_get(NccUsbPortSpec_t *port, char *string, int size);
     }
     ...
     ...
- * @codeend
+ * @endcode
  */
 int ncc_pipe_create(NccPipeHandle_t *handle, PROCESS_MODE mode);
 
@@ -385,8 +385,8 @@ int ncc_pipe_create(NccPipeHandle_t *handle, PROCESS_MODE mode);
  * @brief Start all the pipelines on the device with specified serial number
  * @param[in] dev_id serial number of the device
  * @return Successful acquisition return or failure
- *   @retval 0 Start successfully
- *   @retval -1 Start failed
+ *   @retval  0 Success
+ *   @retval -1 Failure
  */
 int ncc_dev_start(int dev_id);
 
@@ -394,7 +394,7 @@ int ncc_dev_start(int dev_id);
  * @brief Get the pipe index of this NccPipeHandle_t on the device.\n
  * Generally speaking this pipe index is automatically assigned by SDK.
  * @param[in] *handle pointer to the NccPipeHandle_t
- * @return index of pipe
+ * @return Index of pipe
  */
 int ncc_pipe_id_get(NccPipeHandle_t *handle);
 
@@ -403,7 +403,7 @@ int ncc_pipe_id_get(NccPipeHandle_t *handle);
  * @param[in] *handle pointer to the NccPipeHandle_t
  * @param[in] *input_tensor pointer to the NccTensorSpec_t
  * @return
- *   @retval 0 Success
+ *   @retval  0 Success
  *   @retval -1 Failure
  */
 int ncc_input_tensor_descriptor_get(NccPipeHandle_t *handle, NccTensorSpec_t *input_tensor);

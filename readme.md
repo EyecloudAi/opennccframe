@@ -19,7 +19,7 @@ The block diagram of openncc frame system is as follows
 
 ## Getting Started
 
-For more details, please press [here](https://eyecloudai.github.io/openncc_frame/getting-started.html).
+For more details, please press [here](https://eyecloudai.github.io/opennccframe/getting-started.html).
 
 
 ---
@@ -33,8 +33,8 @@ Developers who are not familiar with the GStreamer framework can develop based o
 
 ## Applications
 
-* [Native examples](https://github.com/EyecloudAi/openncc_frame/tree/main/native_vpu_api/example)
-* [NNStreamer example](https://github.com/EyecloudAi/openncc_frame/tree/main/nnstreamer/example)
+* [Native examples](https://github.com/EyecloudAi/opennccframe/tree/main/native_vpu_api/example)
+* [NNStreamer example](https://github.com/EyecloudAi/opennccframe/tree/main/nnstreamer/example)
 
 
 
