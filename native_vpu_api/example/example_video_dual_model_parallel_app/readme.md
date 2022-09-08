@@ -28,6 +28,6 @@ $ sudo apt-get install libopencv-dev
 ```shell
 $ make all
 $ cd build
-$ sudo ./example_video_dual_model_parallel_app /dev/openncc ../pd_test.jpg
+$ sudo ./example_video_dual_model_parallel_app /dev/openncc ../../pic_lib/person.jpg
 ```
 

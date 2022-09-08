@@ -2,9 +2,9 @@
 
 # auto: means automatic detect the $libdir
 if [ -z $1 ];then
-    echo "Please input cmd as (sudo ./install [<platform>]). "
-    echo "[<platform>]: [ubuntu][rk3568][raspi4][auto]"
-    exit
+    platform="auto"
+else
+    platform=$1
 fi
 
 if [ -z $2 ];then
@@ -15,7 +15,7 @@ else
     destdir=$2
 fi
 
-multiarch=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
+#multiarch=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
 project_path=$(cd `dirname $0`;pwd)
 install_pkg_path=$destdir/usr/lib/pkgconfig
 install_path=$destdir/usr/lib/openncc
@@ -45,26 +45,32 @@ if [ ! -d "$rule_path" ];then
     mkdir -p $rule_path
 fi
 
-if [ $1 = "ubuntu"  ] || [ $1 = "rk3568" ] || [ $1 = "raspi4" ];then 
-    echo "Starting to install OpenNCC Native libs for $1"
-    cd $resource_path/$1/
+if [ $platform = "ubuntu" ] || [ $platform = "rk3568" ] || [ $platform = "raspi4" ];then 
+    echo "Starting to install OpenNCC Native libs for $platform"
+    cd $resource_path/$platform/
     ./install.sh $install_path
-elif [ $1 = "auto"  ];then
-    if [[ `uname -a` =~ "x86_64" ]]; then
+elif [ $platform = "auto"  ]; then
+    if [[ `uname -m` =~ "x86_64" ]]; then
 	install_arch=ubuntu
-    elif [[ `uname -a` =~ "ARM-V8" ]]; then
+    elif [[ `uname -m` =~ "aarch64" ]]; then
 	install_arch=rk3568
-    elif [[ `uname -a` =~ "ARMv7l" ]]; then
+    elif [[ `uname -m` =~ "armv7l" ]]; then
 	install_arch=raspi4
     else
 	install_arch=unknown
     	echo "Unknown platform!"
+        echo "Please input cmd as (sudo ./install [<platform>]). "
+        echo "[<platform>]: [ubuntu][rk3568][raspi4]"
+        exit
     fi
     echo "Detected ARCH: $install_arch "
     cd $resource_path/$install_arch/
     ./install.sh $install_path
 else
     echo "Unknown platform!"
+    echo "Please input cmd as (sudo ./install [<platform>]). "
+    echo "[<platform>]: [ubuntu][rk3568][raspi4][auto]"
+    exit
 fi
 
 cp $firmware_path/* $install_path

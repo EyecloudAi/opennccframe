@@ -42,7 +42,7 @@ ifeq ($(wildcard nnstmp),)
 	git clone https://github.com/nnstreamer/nnstreamer nnstmp
 endif
 	cd nnstmp;\
-	git checkout 1356c2a43cd25fb94 && git reset --hard
+	git checkout 47bcd119 && git reset --hard
 # config the nnstreamer  
 	cd ${NCCFRAME_SOURCE_ROOT_PATH};\
 	cp 0001-Filter-Decoder-Add-option-for-ncc-and-fix-bug-of-box.patch ${NNSTREAMER_SOURCE_ROOT_PATH}

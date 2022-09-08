@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 {
     if(argc <2)
     {
-        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]");
+        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]\n");
         return 0;
     }
 
@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
 
         pOutData.alloc_size = maxOutSize;
 
-        /* Invoke the synchronous inference interface，overtime is 10s */
+        /* Invoke the synchronous inference interface, overtime is 10s */
         ret = sync_process(&handle, pInData, &pOutData, 10000);
         printf("%s, inSeq:%d outSeq:%d outSize:%d ,T:%d MS, pid:%d\n",handle.pipe_name, pInData->seqNo ,\
                 pOutData.seqNo, pOutData.actual_size, (int)pOutData.elapsed_time, ncc_pipe_id_get(&handle));

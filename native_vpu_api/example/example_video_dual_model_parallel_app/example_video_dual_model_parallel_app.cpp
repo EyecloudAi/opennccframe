@@ -173,7 +173,7 @@ static void *PDSrcDevCameraThread(void* arg)
 
         memcpy(pInData->input, cv_yuv.data, size);
 
-        /* Invoke the asynchronous inference interface，overtime is 10s */
+        /* Invoke the asynchronous inference interface, overtime is 10s */
         ret = async_process(handle, pInData);
 
         /* allocates memory for storing meta data */
@@ -210,7 +210,7 @@ int main(int argc, char* argv[])
 {
     if(argc <3)
     {
-        printf("Please input sudo ./example_pic_face_detection_app [<image(*.jpeg)>]\n");
+        printf("Please input sudo ./example_video_dual_model_parallel_app [<node(/dev/video*)>] [<image(*.jpeg)>]\n");
         return 0;
     }
 
@@ -246,14 +246,14 @@ int main(int argc, char* argv[])
     NccPipeHandle_t handleFD = { 0,\
                                  "",\
                                  "face-detection-retail-0004",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_camera.json"};
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/face-detection-retail-0004.blob",\
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/face-detection-retail-0004/config/input_camera.json"};
 
     NccPipeHandle_t handlePD = { 0,\
                                  "",\
                                  "person-detection-retail-0013",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/person-detection-retail-0013.blob",\
-                                 "/usr/local/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/config/input_yuv420_720P.json"};
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/person-detection-retail-0013.blob",\
+                                 "/usr/lib/openncc/model_zoo/ncc/openvino_2021.4/person-detection-retail-0013/config/input_yuv420_720P.json"};
 
     /* 3.create handle, synchronous mode */
     ret = ncc_pipe_create(&handleFD, NCC_ASYNC);

@@ -33,7 +33,7 @@
             "linkIn"     :  "nccInference",
             "inputTensor": [1,1,200,7],  
             "inputType": "CV_FP16",  
-            "outputTensor1": [1,1,200,7],   
+            "outputTensor": [1,1,200,7],   
             "outputType": "CV_FP32",   
             "linkOut"     :  "output"   
         }
