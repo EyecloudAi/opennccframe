@@ -3,7 +3,7 @@
 are the elements for the GStreamer.  
 
 ## How to buid and install the elements  
-* Before install openncc's elements you need install  NNStreamer, [clik it](https://eyecloudai.github.io/opennccframe/getting-started/install-NCC-elements-on-nnstreamer.html) 
+* Before install openncc's elements you need install  NNStreamer, [clik it](https://eyecloudai.github.io/opennccframe/getting-started/install-from-repo/install-ncc-elements-into-nnstreamer.html) 
 to know how to install it. 
 * Since we want the nnstreamer to support all the NCC devices,we need patch to nnstreamer,let the nnstreamer  tensor_filter could 
 identify openncc devices.  
